@@ -18,7 +18,7 @@ public class Member {
 		this.memberPwd = memberPwd;
 		this.memberName = memberName;
 		this.birthDate = birthDate;
-		Phone = phone;
+		this.Phone = phone;
 		this.adminCheck = adminCheck;
 	}
 	public String getMemberId() {
@@ -49,7 +49,7 @@ public class Member {
 		return Phone;
 	}
 	public void setPhone(int phone) {
-		Phone = phone;
+		this.Phone = phone;
 	}
 	public String getAdminCheck() {
 		return adminCheck;
