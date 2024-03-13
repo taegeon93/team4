@@ -4,12 +4,12 @@ import java.sql.Date;
 
 public class Member {
 	
-	String memberId;
-	String memberPwd;
-	String memberName;
-	Date birthDate;
-	int Phone;
-	String adminCheck;
+	private String memberId;
+	private String memberPwd;
+	private String memberName;
+	private Date birthDate;
+	private int Phone;
+	private String adminCheck;
 	
 	
 	public Member(String memberId, String memberPwd, String memberName, Date birthDate, int phone, String adminCheck) {
