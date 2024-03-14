@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +13,11 @@
 </head>
 <body>
 <%@include file="views/common/menubar.jsp" %>
+<% 
+	Date date = new Date();
+	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	String today = dateFormat.format(date);
+%>
 <main>
   <div class="backimg">
     <div class="area">
@@ -22,8 +29,8 @@
           </div>
           <div class="search2">
             <img src="<%=request.getContextPath() %>/resources/mainimg/calendar.png" alt="calendar">
-            <input type="date" name="" id=""  min="2024-03-07" required>~
-            <input type="date" name="" id="" required>
+            <input type="date" name="" id="date1" onchange="date()" min=<%= today %> required>~
+            <input type="date" name="" id="date2" required>
           </div>
           <button type="submit" class="btn btn-primary">검색</button>
         </div>
