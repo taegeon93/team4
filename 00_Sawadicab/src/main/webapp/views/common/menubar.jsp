@@ -17,12 +17,15 @@
     <header>
         <div class="hstyle">
             <img src="resources/img/logo.png" alt="이미지">
-   <!--          <%if(loginUser == null){ %>
+            <%if(loginUser == null){ %>
             <button class="btn btn-primary">로그인</button>
             <%}else{ %>
-            <div id="loginSuccess"><button class="btn btn-outline-secondary">MyPage</button><button class="btn btn-outline-secondary">Logout</button></div>
-            <%} %>	--> 
-            <div id="loginSuccess"><button class="btn btn-outline-secondary">MyPage</button><button class="btn btn-outline-secondary">Logout</button></div>
+                <div id="loginSuccess">
+                    <button class="btn btn-outline-secondary">MyPage</button>
+                    <button class="btn btn-danger">Logout</button>
+                </div>
+            <%} %>
+            
         </div>
         <hr>
     </header>
