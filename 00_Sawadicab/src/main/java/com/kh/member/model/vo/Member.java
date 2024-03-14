@@ -8,18 +8,18 @@ public class Member {
 	private String memberPwd;
 	private String memberName;
 	private Date birthDate;
-	private int Phone;
-	private String adminCheck;
+	private int phone;
+	private String status;
 	
 	
-	public Member(String memberId, String memberPwd, String memberName, Date birthDate, int phone, String adminCheck) {
+	public Member(String memberId, String memberPwd, String memberName, Date birthDate, int phone, String status) {
 		super();
 		this.memberId = memberId;
 		this.memberPwd = memberPwd;
 		this.memberName = memberName;
 		this.birthDate = birthDate;
-		this.Phone = phone;
-		this.adminCheck = adminCheck;
+		this.phone = phone;
+		this.status = status;
 	}
 	public String getMemberId() {
 		return memberId;
@@ -46,20 +46,20 @@ public class Member {
 		this.birthDate = birthDate;
 	}
 	public int getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(int phone) {
-		this.Phone = phone;
+		this.phone = phone;
 	}
-	public String getAdminCheck() {
-		return adminCheck;
+	public String getStatus() {
+		return status;
 	}
-	public void setAdminCheck(String adminCheck) {
-		this.adminCheck = adminCheck;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	@Override
 	public String toString() {
 		return "Member [memberId=" + memberId + ", memberPwd=" + memberPwd + ", memberName=" + memberName
-				+ ", birthDate=" + birthDate + ", Phone=" + Phone + ", adminCheck=" + adminCheck + "]";
+				+ ", birthDate=" + birthDate + ", Phone=" + phone + ", status=" + status + "]";
 	}
 }
