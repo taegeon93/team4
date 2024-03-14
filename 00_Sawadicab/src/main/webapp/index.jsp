@@ -5,9 +5,108 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/mainstyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<script src="<%=request.getContextPath() %>/resources/script/script.js" defer></script>
 </head>
 <body>
 <%@include file="views/common/menubar.jsp" %>
+<main>
+  <div class="backimg">
+    <div class="area">
+      <form action="" method="get">
+        <div class="searchgroup">
+          <div class="search1">
+            <img src="<%=request.getContextPath() %>/resources/mainimg/airplane.png" alt="airplane">
+            <input type="text" name="" id="" placeholder="여행지를 검색하세요." required>
+          </div>
+          <div class="search2">
+            <img src="<%=request.getContextPath() %>/resources/mainimg/calendar.png" alt="calendar">
+            <input type="date" name="" id=""  min="2024-03-07" required>~
+            <input type="date" name="" id="" required>
+          </div>
+          <button type="submit" class="btn btn-primary">검색</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<br><br>
+  <div class="area2">
+    <h5>인기 추천 숙소</h5><br>
+    <div class="wrapper">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+        <div class="carousel">
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-1.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-2.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-3.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-4.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-5.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-6.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-7.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-8.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+          <div>
+            <img src="<%=request.getContextPath() %>/resources/mainimg/img-9.jpg" alt="img" draggable="false">
+            <p>asdasd</p>
+          </div>
+        </div>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </div>
 
+      <h5>국내 인기 여행지</h5><br>
+      <div class="best">
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best1.jpg" alt="img">
+          <p>제주도</p>
+        </div>
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best2.jpg" alt="img">
+          <p>서울</p>
+        </div>
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best3.jpg" alt="img">
+          <p>부산</p>
+        </div>
+      </div>
+      <div class="best">
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best4.jpg" alt="img">
+          <p>강릉</p>
+        </div>
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best5.jpg" alt="img">
+          <p>인천</p>
+        </div>
+        <div>
+          <img src="<%=request.getContextPath() %>/resources/mainimg/best6.jpg" alt="img">
+          <p>경주</p>
+        </div>
+      </div>
+      <br><br><br><br>
+    </div>
+</main>
 </body>
 </html>
