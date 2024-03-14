@@ -1,0 +1,21 @@
+header {
+    position:fixed;
+    width: 100%;
+    z-index: 99;
+    background-color: white;
+    top: 0;
+  }
+.hstyle {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5%;
+  padding-top: 1%;
+  padding-right: 5%;
+  padding-bottom: 1%;
+}
+.hstyle > button {
+  height: 30px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+}
