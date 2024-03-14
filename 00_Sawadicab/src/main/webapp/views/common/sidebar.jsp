@@ -1,11 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+  
+  
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Sidebar</title>
-<link rel="stylesheet" href="../../resources/css/sidebar.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/sidebar.css">
 </head>
 <body>
 	<nav class="sidebar">
