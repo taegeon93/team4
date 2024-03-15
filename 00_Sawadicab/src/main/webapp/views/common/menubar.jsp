@@ -2,15 +2,12 @@
     pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
 <% 
 	Member loginUser = (Member)session.getAttribute("loginUser");
-	
-
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="<%=request.getContextPath() %>/resources/script/login.js" defer></script>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -30,6 +27,12 @@
         </div>
         <hr>
     </header>
+  	<script>
+  		function goLogin(){
+	  	    console.log("함수 읽음");
+	  	    location.href ="<%=request.getContextPath() %>/loginpage.move";
+  		}
+  	</script>
 
 </body>
 </html>

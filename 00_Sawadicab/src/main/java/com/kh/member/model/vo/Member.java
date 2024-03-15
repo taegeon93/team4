@@ -12,6 +12,7 @@ public class Member {
 	private String status;
 	
 	
+	
 	public Member(String memberId, String memberPwd, String memberName, Date birthDate, int phone, String status) {
 		super();
 		this.memberId = memberId;
@@ -60,6 +61,8 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Member [memberId=" + memberId + ", memberPwd=" + memberPwd + ", memberName=" + memberName
-				+ ", birthDate=" + birthDate + ", Phone=" + phone + ", status=" + status + "]";
+				+ ", birthDate=" + birthDate + ", phone=" + phone + ", status=" + status + "]";
 	}
+	
+
 }
