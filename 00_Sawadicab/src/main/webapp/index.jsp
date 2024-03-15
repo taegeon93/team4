@@ -29,8 +29,8 @@
           </div>
           <div class="search2">
             <img src="<%=request.getContextPath() %>/resources/mainimg/calendar.png" alt="calendar">
-            <input type="date" name="" id="date1" onchange="date()" min=<%= today %> required>~
-            <input type="date" name="" id="date2" required>
+            <input type="date" name="" id="date1" onchange="date()" min="<%=today %>" required>~
+            <input type="date" name="" id="date2" required >
           </div>
           <button type="submit" class="btn btn-primary">검색</button>
         </div>
