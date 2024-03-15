@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MemberLogineController
  */
-@WebServlet("/login.me")
-public class MemberLogineController extends HttpServlet {
+@WebServlet("/loginPage.move")
+public class MemberLoginePageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberLogineController() {
+    public MemberLoginePageController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,9 @@ public class MemberLogineController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("views.member.memberLogin.jsp").forward(request, response);
+		
+		
 	}
 
 	/**

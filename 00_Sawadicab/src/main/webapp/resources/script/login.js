@@ -1,3 +1,3 @@
 function goLogin(){
-    location.href = "<%=contextPath %>/login.me";
+    location.href = "<%=contextPath %>/loginPage.move";
 }
