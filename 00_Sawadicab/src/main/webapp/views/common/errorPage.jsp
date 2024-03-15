@@ -8,7 +8,18 @@
 </head>
 <body>
 <%@ include file="menubar.jsp" %>
-	<h1 align="center">에러페이지<%= request.getAttribute("errorMsg") %></h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<h1 align="center"><%= request.getAttribute("errorMsg") %></h1>
 
 </body>
 </html>
