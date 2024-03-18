@@ -19,7 +19,7 @@
             <button class="btn btn-primary" onclick="goLogin()">로그인</button>
             <%}else{ %>
                 <div id="loginSuccess">
-                    <button class="btn btn-outline-secondary">MyPage</button>
+                    <button class="btn btn-outline-secondary" onclick="goMyPage()">MyPage</button>
                     <a id="logout" href="<%=request.getContextPath()%>/logout.me"><button class="btn btn-danger">Logout</button></a>
                 </div>
             <%} %>
@@ -31,6 +31,9 @@
   		function goLogin(){
 	  	    
 	  	    location.href ="<%=request.getContextPath() %>/loginpage.move";
+  		}
+  		function goMyPage() {
+  			location.href = "<%= request.getContextPath() %>/myPage.me";
   		}
   	</script>
 
