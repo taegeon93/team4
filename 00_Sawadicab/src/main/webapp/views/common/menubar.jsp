@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="hstyle">
-            <a href="<%=request.getContextPath() %>"><img src="<%=request.getContextPath() %>/resources/img/logo.png" alt="이미지"></a>
+            <a href="<%=request.getContextPath() %>"><img src="<%=request.getContextPath() %>/resources/img/common/logo.png" alt="이미지"></a>
             <%if(loginUser == null){ %>
             <button class="btn btn-primary" onclick="goLogin()">로그인</button>
             <%}else{ %>
