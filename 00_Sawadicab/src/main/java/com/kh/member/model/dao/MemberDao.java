@@ -45,7 +45,7 @@ public class MemberDao {
 						rset.getString("member_pw"),
 						rset.getString("member_name"),
 						rset.getDate("birth_date"),
-						rset.getInt("phone"),
+						rset.getString("phone"),
 						rset.getString("status")		
 						);
 				
