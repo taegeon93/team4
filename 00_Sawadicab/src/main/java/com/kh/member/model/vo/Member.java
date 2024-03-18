@@ -8,12 +8,12 @@ public class Member {
 	private String memberPwd;
 	private String memberName;
 	private Date birthDate;
-	private int phone;
+	private String phone;
 	private String status;
 	
 	
 	
-	public Member(String memberId, String memberPwd, String memberName, Date birthDate, int phone, String status) {
+	public Member(String memberId, String memberPwd, String memberName, Date birthDate, String phone, String status) {
 		super();
 		this.memberId = memberId;
 		this.memberPwd = memberPwd;
@@ -22,6 +22,18 @@ public class Member {
 		this.phone = phone;
 		this.status = status;
 	}
+	
+	public Member(String memberId, String memberPwd, String memberName, Date birthDate, String phone) {
+		super();
+		this.memberId = memberId;
+		this.memberPwd = memberPwd;
+		this.memberName = memberName;
+		this.birthDate = birthDate;
+		this.phone = phone;
+	}
+
+
+
 	public String getMemberId() {
 		return memberId;
 	}
@@ -46,10 +58,10 @@ public class Member {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getStatus() {

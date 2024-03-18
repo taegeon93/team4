@@ -20,12 +20,16 @@
                     <button type="submit" class="btn btn-primary sty">로그인</button> <br>
                     <button type="button" class="btn btn-success sty">네이버로 로그인</button> <br>
                     <button type="button" class="btn btn-warning sty">카카오로 로그인</button> <br>
-                    <button type="button" class="btn btn-secondary sty">아직도 회원가입을 하지 않으셨나요?</button>
+                    <button type="button" onclick="signin()" class="btn btn-secondary sty">아직도 회원가입을 하지 않으셨나요?</button>
                 </form>
             </div>
         </div>
     </div>
-
+<script>
+    function signin() {
+        location.href="<%=request.getContextPath() %>/views/member/signIn.jsp"
+    }
+</script>
 </body>
 
 </html>
