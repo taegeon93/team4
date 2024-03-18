@@ -13,6 +13,9 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/workspace/99_Semi/team4/00_Sawadicab/src/main/webapp/WEB-INF/lib/ojdbc8.jar"/>
+
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/workspace/99_Project/team4/00_Sawadicab/src/main/webapp/WEB-INF/lib/ojdbc8.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>

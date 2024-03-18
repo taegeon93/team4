@@ -2,6 +2,7 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,15 @@
 	Date date = new Date();
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	String today = dateFormat.format(date);
+	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
+
+<%if(alertMsg !=null){ %>
+<script>
+		alert("<%=alertMsg %>");		
+	</script>
+		<%session.removeAttribute("alertMsg"); %>
+<%} %>
 <main>
   <div class="backimg">
     <div class="area">
