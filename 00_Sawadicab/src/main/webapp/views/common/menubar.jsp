@@ -20,7 +20,7 @@
             <%}else{ %>
                 <div id="loginSuccess">
                     <button class="btn btn-outline-secondary">MyPage</button>
-                    <button class="btn btn-danger">Logout</button>
+                    <a id="logout" href="<%=request.getContextPath()%>/logout.me"><button class="btn btn-danger">Logout</button></a>
                 </div>
             <%} %>
             
@@ -29,7 +29,7 @@
     </header>
   	<script>
   		function goLogin(){
-	  	    console.log("함수 읽음");
+	  	    
 	  	    location.href ="<%=request.getContextPath() %>/loginpage.move";
   		}
   	</script>

@@ -23,3 +23,9 @@ header {
   margin-top: 25px ;
   margin-left: 20px;
 }
+#logout{
+  text-decoration: none;
+  color: white;
+   margin-top: 25px ;
+  margin-left: 20px;
+}
