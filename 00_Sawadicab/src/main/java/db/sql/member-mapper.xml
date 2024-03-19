@@ -4,6 +4,8 @@
 	<entry key="loginMember">
 	SELECT * FROM MEMBER WHERE MEMBER_ID = ? AND MEMBER_PW = ? AND STATUS = 'Y'
 	</entry>
-
+	<entry key="insertMember">
+		INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, DEFAULT)
+	</entry>
 
 </properties>

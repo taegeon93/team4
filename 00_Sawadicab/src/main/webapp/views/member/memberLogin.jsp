@@ -6,6 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/login.css">
+<% String alertMsg = (String)session.getAttribute("alertMsg"); %>
+<%if(alertMsg !=null){ %>
+<script>
+		alert("<%=alertMsg %>");		
+	</script>
+		<%session.removeAttribute("alertMsg"); %>
+<%} %>
 </head>
 <body>
 <%@include file="../common/menubar.jsp" %>

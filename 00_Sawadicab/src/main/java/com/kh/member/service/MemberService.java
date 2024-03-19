@@ -19,6 +19,25 @@ public class MemberService {
 		
 		return m;
 	}
+
+	public int insertMember(Member m) {
+		int result = 0;
+		
+		Connection conn = getConnection();
+		
+		result = new MemberDao().insertMember(conn, m);
+		
+		if (result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		
+		return result;
+	}
 	
 	
 
