@@ -1,28 +1,27 @@
 package com.kh.member.controller;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.kh.member.model.vo.Member;
 import com.kh.member.service.MemberService;
 
 /**
- * Servlet implementation class MemberSignInController
+ * Servlet implementation class MemberDeleteController
  */
-@WebServlet("/signIn.me")
-public class MemberSignInController extends HttpServlet {
+@WebServlet("/delete.me")
+public class MemberDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberSignInController() {
+    public MemberDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +31,18 @@ public class MemberSignInController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
-		String userName = request.getParameter("userName");
-		Date birthDate = Date.valueOf(request.getParameter("birthDate"));
-		String phone = request.getParameter("phone");
 		
-		Member m = new Member(userId, userPwd, userName, birthDate, phone);
-		
-		int result = new MemberService().insertMember(m);
-		
-		if (result > 0) {
-			request.getSession().setAttribute("alertMsg", "회원가입에 성공하였습니다.");
-			response.sendRedirect(request.getContextPath() + "/loginpage.move");
+		int result = new MemberService().deleteMem(userId, userPwd);
+		HttpSession session = request.getSession();
+		if(result > 0) {
+			session.setAttribute("alertMsg", "성공적으로 회원 탈퇴하였습니다.");
+			session.removeAttribute("loginUser");
+			response.sendRedirect(request.getContextPath());
 		} else {
-			request.setAttribute("errorMsg", "회원가입에 실패하였습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			session.setAttribute("alertMsg", "회원 탈퇴에 실패했습니다.");
+			response.sendRedirect(request.getContextPath() + "/myPage.me");
 		}
 	}
 

@@ -5,5 +5,15 @@
 	SELECT * FROM MEMBER WHERE MEMBER_ID = ? AND MEMBER_PW = ? AND STATUS = 'Y'
 	</entry>
 
+	
+	<entry key="deleteMem">
+		UPDATE MEMBER
+		SET STATUS = 'N'
+		WHERE MEMBER_ID = ? AND MEMBER_PW = ?
+
+	<entry key="insertMember">
+		INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, DEFAULT)
+
+	</entry>
 
 </properties>
