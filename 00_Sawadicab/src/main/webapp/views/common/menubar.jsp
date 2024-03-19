@@ -32,15 +32,9 @@
 	  	    
 	  	    location.href ="<%=request.getContextPath() %>/loginpage.move";
   		}
-<<<<<<< HEAD
   		function goMyPage() {
   			location.href = "<%= request.getContextPath() %>/myPage.me";
   		}
-=======
-        function goMyPage(){
-            location.href ="<%=request.getContextPath() %>/myPage.me";
-        }
->>>>>>> 0ecb24aa485bfad62175d2a38f2961b2b5d944b1
   	</script>
 
 </body>

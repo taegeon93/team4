@@ -37,10 +37,10 @@ public class MemberSignInController extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
 		String userName = request.getParameter("userName");
-		Date birthDate = format.parse(request.getParameter("birthDate"));
+		//Date birthDate = format.parse(request.getParameter("birthDate"));
 		String phone = request.getParameter("phone");
 		
-		Member m = new Member(userId, userPwd, userName, birthDate, phone);
+		//Member m = new Member(userId, userPwd, userName, birthDate, phone);
 	}
 
 	/**
