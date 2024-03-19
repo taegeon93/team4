@@ -4,6 +4,11 @@
 	<entry key="loginMember">
 	SELECT * FROM MEMBER WHERE MEMBER_ID = ? AND MEMBER_PW = ? AND STATUS = 'Y'
 	</entry>
-
+	
+	<entry key="deleteMem">
+		UPDATE MEMBER
+		SET STATUS = 'N'
+		WHERE MEMBER_ID = ? AND MEMBER_PW = ?
+	</entry>
 
 </properties>
