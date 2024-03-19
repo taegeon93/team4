@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/login.css">
+
 </head>
 <body>
 <%@include file="../common/menubar.jsp" %>

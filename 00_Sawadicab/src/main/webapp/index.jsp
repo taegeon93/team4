@@ -18,7 +18,6 @@
 	Date date = new Date();
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	String today = dateFormat.format(date);
-	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 
 <%if(alertMsg !=null){ %>
