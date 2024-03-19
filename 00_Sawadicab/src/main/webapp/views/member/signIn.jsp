@@ -18,7 +18,7 @@
                     <input type="password" name="userPwd" id="userPwd" placeholder="비밀번호" required/><br>
                     <input type="password" name="userPwdCheck" id="userPwdCheck" placeholder="비밀번호확인" required/><br>
                     <input type="text" name="userName" placeholder="이름" required/><br>
-                    <input type="text" name="birthDate" placeholder="생년월일" required/><br>
+                    <input type="date" name="birthDate" placeholder="생년월일" required/><br>
                     <input type="text" name="phone" placeholder="전화번호" required/>
                 </div>
                 <div>
