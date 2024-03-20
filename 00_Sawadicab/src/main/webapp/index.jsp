@@ -14,23 +14,12 @@
 </head>
 <body>
 <%@include file="views/common/menubar.jsp" %>
-<% 
-	Date date = new Date();
-	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	String today = dateFormat.format(date);
-%>
 
-<%if(alertMsg !=null){ %>
-<script>
-		alert("<%=alertMsg %>");		
-	</script>
-		<%session.removeAttribute("alertMsg"); %>
-<%} %>
 <main>
   <div class="backimg">
     <div class="area">
       <form action="<%=request.getContextPath() %>/search.co" method="get">
-      	<input type="hidden" name="searchVal" value=1"/>
+      	<input type="hidden" name="searchVal" value="1"/>
         <div class="searchgroup">
           <div class="search1">
             <img src="<%=request.getContextPath() %>/resources/mainimg/airplane.png" alt="airplane">

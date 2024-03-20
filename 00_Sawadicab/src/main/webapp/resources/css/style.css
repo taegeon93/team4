@@ -9,6 +9,9 @@ form {
   margin: 50px;
   margin-top: 9%;
 }
+#search_btn{
+	width: 70px;
+}
 
 .searchgroup {
   display: flex;
