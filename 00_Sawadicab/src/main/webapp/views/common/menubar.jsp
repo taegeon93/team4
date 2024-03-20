@@ -26,7 +26,7 @@
         <div class="hstyle">
             <a href="<%=request.getContextPath() %>"><img src="<%=request.getContextPath() %>/resources/img/common/logo.png" alt="이미지"></a>
             <%if(serchVal != null){ %>
-            <div class="area">
+            <div class="mparea">
               <form action="" method="get">
                 <div class="searchgroup">
                   <div class="search1">
