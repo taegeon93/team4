@@ -37,7 +37,8 @@ public class CompanySearchController extends HttpServlet {
 		Date date2 = Date.valueOf(request.getParameter("date2"));
 		
 		
-		request.getSession().setAttribute("searchVal", searchVal);
+		request.setAttribute("searchVal", searchVal);
+		request.getRequestDispatcher("views/company/CompanyListView.jsp").forward(request, response);
 		
 	}
 
