@@ -29,7 +29,7 @@
         </div>
       </div>
       <section id="mainSection">
-        <div class="item">
+        <div class="item" onclick="()=>{location.href='views/room/detail.me?companyName=<%= r.getCompanyName() %>&date1=<%=date1%>&date2=<%=date2%>'}">
           <img src="../taegeon/24_03_04/img/라한.webp" alt="test">
           <div class="item_name">
               <span class="companyName">노보텍 앰배서더 동대문호텔</span>

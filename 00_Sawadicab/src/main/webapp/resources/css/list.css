@@ -53,6 +53,8 @@
   display: flex;
   justify-content: space-between;
   min-width: 900px;
+  cursor: pointer;
+  
 }
 .item_name{
   display: flex;
