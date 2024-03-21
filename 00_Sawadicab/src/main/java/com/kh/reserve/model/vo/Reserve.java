@@ -5,18 +5,20 @@ import java.sql.Date;
 public class Reserve {
 	private int reserveNum;
 	private String memberId;
-	private String roomNum;
+	private int roomNum;
 	private Date checkIn;
 	private Date checkOut;
 	private String companyAddress;
 	private String companyName;
+	private int companyNum;
+	private String companyPicture;
 	
 	public Reserve() {
 		super();
 	}
 
-	public Reserve(int reserveNum, String memberId, String roomNum, Date checkIn, Date checkOut, String companyAddress,
-			String companyName) {
+	public Reserve(int reserveNum, String memberId, int roomNum, Date checkIn, Date checkOut, String companyAddress,
+			String companyName, int companyNum, String companyPicture) {
 		super();
 		this.reserveNum = reserveNum;
 		this.memberId = memberId;
@@ -25,6 +27,8 @@ public class Reserve {
 		this.checkOut = checkOut;
 		this.companyAddress = companyAddress;
 		this.companyName = companyName;
+		this.companyNum = companyNum;
+		this.companyPicture = companyPicture;
 	}
 	
 	public Reserve(Date checkIn, Date checkOut, String companyName) {
@@ -34,13 +38,13 @@ public class Reserve {
 		this.companyName = companyName;
 	}
 	
-	
 
-	public Reserve(String roomNum, String companyAddress, String companyName) {
+	public Reserve(String companyAddress, String companyName, int companyNum, String companyPicture) {
 		super();
-		this.roomNum = roomNum;
 		this.companyAddress = companyAddress;
 		this.companyName = companyName;
+		this.companyNum = companyNum;
+		this.companyPicture = companyPicture;
 	}
 
 	public int getReserveNum() {
@@ -59,11 +63,11 @@ public class Reserve {
 		this.memberId = memberId;
 	}
 
-	public String getRoomNum() {
+	public int getRoomNum() {
 		return roomNum;
 	}
 
-	public void setRoomNum(String roomNum) {
+	public void setRoomNum(int roomNum) {
 		this.roomNum = roomNum;
 	}
 
@@ -99,12 +103,30 @@ public class Reserve {
 		this.companyName = companyName;
 	}
 
+	public int getCompanyNum() {
+		return companyNum;
+	}
+
+	public void setCompanyNum(int companyNum) {
+		this.companyNum = companyNum;
+	}
+
+	public String getCompanyPicture() {
+		return companyPicture;
+	}
+
+	public void setCompanyPicture(String companyPicture) {
+		this.companyPicture = companyPicture;
+	}
+
 	@Override
 	public String toString() {
 		return "Reserve [reserveNum=" + reserveNum + ", memberId=" + memberId + ", roomNum=" + roomNum + ", checkIn="
 				+ checkIn + ", checkOut=" + checkOut + ", companyAddress=" + companyAddress + ", companyName="
-				+ companyName + "]";
+				+ companyName + ", companyNum=" + companyNum + ", companyPicture=" + companyPicture + "]";
 	}
+
+
 	
 	
 }

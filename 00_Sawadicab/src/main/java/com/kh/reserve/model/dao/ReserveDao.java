@@ -46,8 +46,9 @@ public class ReserveDao {
 			while(rset.next()) {
 				list.add(
 							new Reserve(
-										rset.getString("company_name"),
 										rset.getString("company_address"),
+										rset.getString("company_name"),
+										rset.getInt("company_Num"),
 										rset.getString("company_picture")
 									)
 						);

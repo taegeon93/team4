@@ -40,9 +40,10 @@ public class CompanySearchController extends HttpServlet {
 		Reserve rs = new Reserve(date1, date2, search);
 		ArrayList<Reserve> list = new ReserveService().searchCompany(rs);
 		
-		request.setAttribute("search", search);
+		request.setAttribute("list", list);
 		request.setAttribute("date1", date1);
 		request.setAttribute("date2", date2);
+		request.setAttribute("search", search);
 		request.setAttribute("searchVal", searchVal);
 		request.getRequestDispatcher("views/company/CompanyListView.jsp").forward(request, response);
 		
