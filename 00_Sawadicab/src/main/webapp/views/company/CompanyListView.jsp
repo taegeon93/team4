@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.kh.reserve.model.vo.Reserve"%>
+<%@page import="java.util.ArrayList"%>
+
+<% ArrayList<Reserve> list = (ArrayList<Reserve>)request.getAttribute("list"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,6 +49,15 @@
         </div>
 
       </section>
+      <%-- 테스트 --%>
+      <div>
+      	<% for(Reserve r : list) { %>
+      	<h5><%= r.getCompanyName() %></h5>
+      	<h4><%= r.getCompanyAddress() %></h4>
+      	<h3><%= r.getCompanyPicture() %></h3>
+      	<h2><%= r.getCompanyNum() %></h2>
+      	<% } %>
+      </div>
       
     </main>
 
