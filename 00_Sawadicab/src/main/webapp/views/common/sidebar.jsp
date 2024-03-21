@@ -18,11 +18,16 @@
 	        <a href=""><div>회원정보</div></a>
 	    </div>
 	    <div class="sidebar-link">
-	        <a href="reservePage.html"><div>예약내역</div></a>
+	        <a href="views/reservation/reservePage.jsp" onclick="goReservePage()"><div>예약내역</div></a>
 	    </div>
 	    <div class="sidebar-link">
 	        <a href="modify.html"><div>개인정보 수정</div></a>
 	    </div>
 </nav>
+<script>
+	function goReservePage() {
+		location.href = "<%= request.getContextPath() %>/reservePage.re";
+	}
+</script>
 </body>
 </html>
