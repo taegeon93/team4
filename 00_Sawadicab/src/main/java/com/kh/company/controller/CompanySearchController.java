@@ -40,7 +40,7 @@ public class CompanySearchController extends HttpServlet {
 		
 		Reserve rs = new Reserve(date1, date2, search);
 		ArrayList<Company> list = new ReserveService().searchCompany(rs);
-		
+				
 		request.setAttribute("list", list);
 		request.setAttribute("date1", date1);
 		request.setAttribute("date2", date2);

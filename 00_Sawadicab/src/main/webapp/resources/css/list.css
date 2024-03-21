@@ -96,3 +96,7 @@
   margin-bottom: 30px;
   width: 100px;
 }
+.score > img{
+	margin-bottom: 4px;
+	height: 20px;
+}
