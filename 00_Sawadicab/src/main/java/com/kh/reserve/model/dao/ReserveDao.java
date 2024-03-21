@@ -1,5 +1,7 @@
 package com.kh.reserve.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,8 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import static com.kh.common.JDBCTemplate.*;
-
+import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.vo.Reserve;
 
 public class ReserveDao {
@@ -24,8 +25,8 @@ public class ReserveDao {
 		}
 	}
 
-	public ArrayList<Reserve> searchCompany(Connection conn, Reserve rs) {
-		ArrayList<Reserve> list = new ArrayList<>();
+	public ArrayList<Company> searchCompany(Connection conn, Reserve rs) {
+		ArrayList<Company> list = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -45,11 +46,13 @@ public class ReserveDao {
 			
 			while(rset.next()) {
 				list.add(
-							new Reserve(
-										rset.getString("company_address"),
+							new Company(
+										rset.getInt("company_num"),
 										rset.getString("company_name"),
-										rset.getInt("company_Num"),
-										rset.getString("company_picture")
+										rset.getString("company_address"),
+										rset.getString("company_category"),
+										rset.getString("company_picture"),
+										rset.getDouble("score")
 									)
 						);
 			}

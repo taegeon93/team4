@@ -6,20 +6,24 @@ public class Company {
 	private String companyAddress;
 	private String companyCategory;
 	private String companyPicture;
+	private double score;
 	
 	public Company() {
 		super();
 	}
+	
 
 	public Company(int companyNum, String companyName, String companyAddress, String companyCategory,
-			String companyPicture) {
+			String companyPicture, double score) {
 		super();
 		this.companyNum = companyNum;
 		this.companyName = companyName;
 		this.companyAddress = companyAddress;
 		this.companyCategory = companyCategory;
 		this.companyPicture = companyPicture;
+		this.score = score;
 	}
+
 
 	public int getCompanyNum() {
 		return companyNum;
@@ -61,11 +65,20 @@ public class Company {
 		this.companyPicture = companyPicture;
 	}
 
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
 	@Override
 	public String toString() {
 		return "Company [companyNum=" + companyNum + ", companyName=" + companyName + ", companyAddress="
-				+ companyAddress + ", companyCategory=" + companyCategory + ", companyPicture=" + companyPicture + "]";
+				+ companyAddress + ", companyCategory=" + companyCategory + ", companyPicture=" + companyPicture
+				+ ", score=" + score + "]";
 	}
-	
+
 	
 }

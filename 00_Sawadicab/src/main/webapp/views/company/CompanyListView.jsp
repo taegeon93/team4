@@ -1,9 +1,9 @@
+<%@page import="com.kh.company.model.vo.Company"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.kh.reserve.model.vo.Reserve"%>
 <%@page import="java.util.ArrayList"%>
 
-<% ArrayList<Reserve> list = (ArrayList<Reserve>)request.getAttribute("list"); %>
+<% ArrayList<Company> list = (ArrayList<Company>)request.getAttribute("list"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,11 +51,13 @@
       </section>
       <%-- 테스트 --%>
       <div>
-      	<% for(Reserve r : list) { %>
-      	<h5><%= r.getCompanyName() %></h5>
-      	<h4><%= r.getCompanyAddress() %></h4>
-      	<h3><%= r.getCompanyPicture() %></h3>
-      	<h2><%= r.getCompanyNum() %></h2>
+      	<% for(Company c : list) { %>
+      	<h5><%= c.getCompanyName() %></h5>
+      	<h4><%= c.getCompanyAddress() %></h4>
+      	<h3><%= c.getCompanyPicture() %></h3>
+      	<h2><%= c.getCompanyNum() %></h2>
+      	<h2><%= c.getCompanyCategory() %></h2>
+      	<h2><%= c.getScore() %></h2>
       	<% } %>
       </div>
       
