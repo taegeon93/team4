@@ -14,7 +14,7 @@
 	<main>
      <div class="area">
             <div>
-                <img src="./img/img-1.jpg" alt="">
+                <img src="<%=request.getContextPath() %>/resources/img/company/1/신라.webp" alt="">
             </div>
         </div>
         <p class="fontsty">라한셀렉트 경주</p><br>

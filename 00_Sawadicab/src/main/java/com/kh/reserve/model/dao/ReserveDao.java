@@ -35,12 +35,14 @@ public class ReserveDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setDate(1, rs.getCheckIn());
-			pstmt.setDate(2, rs.getCheckOut());
+			pstmt.setString(1, rs.getCompanyName());
+			pstmt.setString(2, rs.getCompanyName());
 			pstmt.setDate(3, rs.getCheckIn());
 			pstmt.setDate(4, rs.getCheckOut());
-			pstmt.setString(5, rs.getCompanyName());
-			pstmt.setString(6, rs.getCompanyName());
+			pstmt.setDate(5, rs.getCheckIn());
+			pstmt.setDate(6, rs.getCheckOut());
+			pstmt.setDate(7, rs.getCheckIn());
+			pstmt.setDate(8, rs.getCheckOut());
 			
 			rset = pstmt.executeQuery();
 			
@@ -84,7 +86,7 @@ public class ReserveDao {
 			while(rset.next()) {
 				list.add(
 						new Reserve(
-								rset.getInt("reserveNum"),
+								rset.getInt("reserve_num"),
 								rset.getDate("checkIn"),
 								rset.getDate("checkOut"),
 								rset.getString("company_name"),
@@ -103,7 +105,7 @@ public class ReserveDao {
 		return list;
 	}
 
-	public int deleteReserve(Connection conn, String userId, String userPwd) {
+	public int deleteReserve(Connection conn, String userId, String userPwd, int reserveNum) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -112,11 +114,15 @@ public class ReserveDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
+			pstmt.setInt(2, reserveNum);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
-		
 		return result;
 	}
 
+	
 }

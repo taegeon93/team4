@@ -15,7 +15,7 @@
 <body>
 	<nav class="sidebar">
 	    <div class="sidebar-link">
-	        <a href=""><div>회원정보</div></a>
+	        <a href="<%= request.getContextPath() %>/myPage.me"><div>회원정보</div></a>
 	    </div>
 	    <div class="sidebar-link">
 	        <a href="<%= request.getContextPath() %>/reservePage.re"><div>예약내역</div></a>
