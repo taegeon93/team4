@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,6 +11,14 @@
 	Date date = new Date();
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	String today = dateFormat.format(date);
+	
+	Calendar cal = Calendar.getInstance();
+	cal.setTime(date);
+	cal.add(Calendar.DATE, 1);
+	Date nDate = cal.getTime();
+	String nextDate = dateFormat.format(nDate);
+	
+	
 	Date date1 = (Date)request.getAttribute("date1");
 	Date date2 = (Date)request.getAttribute("date2");
 	String search = (String)request.getAttribute("search");
