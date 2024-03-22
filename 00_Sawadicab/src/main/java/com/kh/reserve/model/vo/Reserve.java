@@ -13,6 +13,7 @@ public class Reserve {
 	private int companyNum;
 	private String companyPicture;
 	
+	
 	public Reserve() {
 		super();
 	}
