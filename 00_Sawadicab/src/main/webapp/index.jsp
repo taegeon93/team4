@@ -83,29 +83,29 @@
 
       <h5>국내 인기 여행지</h5><br>
       <div class="best">
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=제주&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best1.jpg" alt="img">
           <p>제주도</p>
         </div>
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=서울&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best2.jpg" alt="img">
           <p>서울</p>
         </div>
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=부산&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best3.jpg" alt="img">
           <p>부산</p>
         </div>
       </div>
       <div class="best">
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=강릉&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best4.jpg" alt="img">
           <p>강릉</p>
         </div>
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=인천&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best5.jpg" alt="img">
           <p>인천</p>
         </div>
-        <div>
+        <div style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/search.co?search=경주&date1=<%=today%>&date2=<%=nextDate %>'">
           <img src="<%=request.getContextPath() %>/resources/mainimg/best6.jpg" alt="img">
           <p>경주</p>
         </div>
