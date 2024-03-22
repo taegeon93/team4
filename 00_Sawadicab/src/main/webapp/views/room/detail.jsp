@@ -24,13 +24,27 @@
             <div class="wrapper">
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <div class="carousel">
-                    <div>
-                        
-                        <p>asdasdssss</p>
+                    <div style="margin-right: 15px;">
+                        <h6>홍길동</h6>
+                        <div>
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                        </div>
+                        <p style="word-wrap: break-word; white-space: break-spaces;">테스트 ㅁㄴㅇㄴㅁㅇㄴㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄹㄴㅇㄹ</p>
                     </div>
                     <div>
-                        
-                        <p>asdasd</p>
+                        <h6>홍길동</h6>
+                        <div>
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                            <input type="radio" name="" id="">
+                        </div>
+                        <p style="word-wrap: break-word; white-space: break-spaces;">테스트 ㅁㄴㅇㄴㅁㅇㄴㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄹㄴㅇㄹ</p>
                     </div>
                     <div>
                         <p>asdasd</p>
