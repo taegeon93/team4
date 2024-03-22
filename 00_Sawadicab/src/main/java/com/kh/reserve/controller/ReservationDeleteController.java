@@ -33,16 +33,16 @@ public class ReservationDeleteController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
 		String userPwd = request.getParameter("userPwd");
+		int reserveNum = Integer.parseInt(request.getParameter("reserveNum"));
 		
-		int result = new ReserveService().deleteReserve(userId, userPwd);
-		HttpSession session = request.getSession();
+		int result = new ReserveService().deleteReserve(userId, userPwd, reserveNum);
 		
 		if(result > 0) {
-			session.setAttribute("alertMsg", "예약이 취소되었습니다.");
-			response.sendRedirect(request.getContextPath());
-		} else {
-			session.setAttribute("alertMsg", "예약 취소에 실패했습니다.");
+			request.getSession().setAttribute("alertMsg", "해당 예약내역이 삭제되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/reservePage.re");
+		} else {
+			request.setAttribute("errorMsg", "예약내역 삭제를 실패했습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

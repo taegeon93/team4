@@ -59,6 +59,6 @@ AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
 	</entry>
 	<entry key="deleteReserve">
 		DELETE FROM RESERVE
-		WHERE MEMBER_ID = ?
+		WHERE MEMBER_ID = ? AND RESERVE_NUM = ? 
 	</entry>
 </properties>
