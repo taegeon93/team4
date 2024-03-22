@@ -43,4 +43,17 @@
 	WHERE (COMPANY_NAME LIKE '%' || ? || '%' OR
 	            C.COMPANY_ADDRESS LIKE '%' || ? || '%')
 	</entry>
+	<entry key="selectReserveList">
+		SELECT RESERVE_NUM
+			 , CHECKIN
+			 , CHECKOUT
+			 , COMPANY_NAME
+			 , COMPANY_ADDRESS
+		FROM RESERVE
+		WHERE MEMBER_ID = ?
+	</entry>
+	<entry key="deleteReserve">
+		DELETE FROM RESERVE
+		WHERE MEMBER_ID = ?
+	</entry>
 </properties>
