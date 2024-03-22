@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.vo.Reserve;
 import com.kh.reserve.service.ReserveService;
 
@@ -38,11 +39,12 @@ public class CompanySearchController extends HttpServlet {
 		Date date2 = Date.valueOf(request.getParameter("date2"));
 		
 		Reserve rs = new Reserve(date1, date2, search);
-		ArrayList<Reserve> list = new ReserveService().searchCompany(rs);
-		
-		request.setAttribute("search", search);
+		ArrayList<Company> list = new ReserveService().searchCompany(rs);
+				
+		request.setAttribute("list", list);
 		request.setAttribute("date1", date1);
 		request.setAttribute("date2", date2);
+		request.setAttribute("search", search);
 		request.setAttribute("searchVal", searchVal);
 		request.getRequestDispatcher("views/company/CompanyListView.jsp").forward(request, response);
 		

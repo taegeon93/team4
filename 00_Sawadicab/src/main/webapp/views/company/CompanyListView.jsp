@@ -1,5 +1,9 @@
+<%@page import="com.kh.company.model.vo.Company"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+
+<% ArrayList<Company> list = (ArrayList<Company>)request.getAttribute("list"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,26 +29,24 @@
         </div>
       </div>
       <section id="mainSection">
-        <div class="item">
-          <img src="../taegeon/24_03_04/img/라한.webp" alt="test">
-          <div class="item_name">
-              <span class="companyName">노보텍 앰배서더 동대문호텔</span>
-              <span class="companyAddress">중구 동대문 역사문화공원</span>
-              <span class="score">별점</span>
-          </div>
-          <div class="item_price"><button class="btn btn-danger" >예약불가</button></div>
-        </div>
-        <div class="item">
-          <img src="../taegeon/24_03_04/img/라한.webp" alt="test">
-          <div class="item_name">
-              <span class="companyName">노보텍 앰배서더 동대문호텔</span>
-              <span class="companyAddress">중구 동대문 역사문화공원</span>
-              <span class="score">별점</span>
-          </div>
-          <div class="item_price"><button class="btn btn-primary" >예약</button></div>
-        </div>
+      <%if(list.isEmpty()){ %>
+      		<h1>선택한 조건에 맞는 상품이 없어요.</h1>
+      <%}else{ %>
+      		<%for(Company c:list){ %>
+	      <div class="item" onclick="location.href='<%=request.getContextPath() %>/detail.me?companyNum=<%=c.getCompanyNum()%>&checkin=<%=date1%>&checkout=<%=date2%>'">
+	          <img src="<%=request.getContextPath() %>/resources/img/company/<%=c.getCompanyNum() %>/<%=c.getCompanyPicture() %>" alt="test">
+	          <div class="item_name">
+	              <span class="companyName"><%=c.getCompanyName() %></span>
+	              <span class="companyAddress"><%=c.getCompanyAddress() %></span>
+	              <span class="score"> <img src="<%=request.getContextPath() %>/resources/img/common/star.jpg"><%=c.getScore() %></span>
+	          </div>
+	          <div class="item_price"></div>
+	        </div>
+	        <%} %>
+       <%} %>
 
       </section>
+    
       
     </main>
 

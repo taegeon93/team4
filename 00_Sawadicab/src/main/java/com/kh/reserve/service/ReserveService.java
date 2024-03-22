@@ -5,14 +5,16 @@ import static com.kh.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.dao.ReserveDao;
 import com.kh.reserve.model.vo.Reserve;
 
 
 public class ReserveService {
 
-	public ArrayList<Reserve> searchCompany(Reserve rs) {
-		ArrayList<Reserve> list = new ArrayList<>();
+	public ArrayList<Company> searchCompany(Reserve rs) {
+		ArrayList<Company> list = new ArrayList<>();
+		
 		Connection conn = getConnection();
 		list = new ReserveDao().searchCompany(conn, rs);
 		close(conn);
