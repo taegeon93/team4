@@ -48,4 +48,17 @@ AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
                                 GROUP BY ROOM_NUM)
                         GROUP BY COMPANY_NUM)
 	</entry>
+	<entry key="selectReserveList">
+		SELECT RESERVE_NUM
+			 , CHECKIN
+			 , CHECKOUT
+			 , COMPANY_NAME
+			 , COMPANY_ADDRESS
+		FROM RESERVE
+		WHERE MEMBER_ID = ?
+	</entry>
+	<entry key="deleteReserve">
+		DELETE FROM RESERVE
+		WHERE MEMBER_ID = ?
+	</entry>
 </properties>
