@@ -37,10 +37,16 @@ private Properties prop = new Properties();
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				c.setCompanyNum(rset.getInt("company_num"));
-				c.setCompanyName(rset.getString("company_name"));
-				c.setCompanyAddress(rset.getString("COMPANY_ADDRESS"));
-				c.setCompanyPicture(rset.getString("company_picture"));
+				c = new Company(
+							rset.getInt("company_num"),
+							rset.getString("company_name"),
+							rset.getString("COMPANY_ADDRESS"),
+							rset.getString("company_picture")
+						);
+//				c.setCompanyNum(rset.getInt("company_num"));
+//				c.setCompanyName(rset.getString("company_name"));
+//				c.setCompanyAddress(rset.getString("COMPANY_ADDRESS"));
+//				c.setCompanyPicture(rset.getString("company_picture"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

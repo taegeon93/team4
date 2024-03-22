@@ -13,6 +13,15 @@ public class Company {
 	}
 	
 
+	public Company(int companyNum, String companyName, String companyAddress, String companyPicture) {
+		super();
+		this.companyNum = companyNum;
+		this.companyName = companyName;
+		this.companyAddress = companyAddress;
+		this.companyPicture = companyPicture;
+	}
+
+
 	public Company(int companyNum, String companyName, String companyAddress, String companyCategory,
 			String companyPicture, double score) {
 		super();
