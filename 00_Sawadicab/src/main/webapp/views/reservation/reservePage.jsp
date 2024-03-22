@@ -70,9 +70,17 @@
                         
                     </table>
                     <br>
-                    <button type="submit"  class="btn btn-warning">예약 취소</button>
+                    <button type="submit" onclick="return checkPassword()"  class="btn btn-warning">예약 취소</button>
               </form>      
-             
+              <script>	
+              	const checkPassword = () => {
+              		if (document.querySelector("input[name=userPwd]").value !== "<%= loginUser.getMemberPwd() %>") {
+              			alert("잘못된 패스워드입니다. 다시 입력해주세요.");
+              			document.querySelector("input[name=userPwd]").value = '';
+              			return false;
+              		}
+              	}
+              </script>
             </div>
            
           </div>
