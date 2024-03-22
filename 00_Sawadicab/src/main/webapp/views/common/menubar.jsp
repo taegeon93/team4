@@ -38,11 +38,12 @@
             <a href="<%=request.getContextPath() %>"><img src="<%=request.getContextPath() %>/resources/img/common/logo.png" alt="이미지"></a>
             <%if(searchVal != null){ %>
             <div class="mparea">
-              <form action="" method="get">
+              <form action="<%=request.getContextPath() %>/search.co" method="get">
+              	<input type="hidden" name="searchVal" value="1"/>
                 <div class="searchgroup">
                   <div class="search1">
                     <img src="<%=request.getContextPath() %>/resources/img/common/airplane.png" alt="airplane">
-                    <input type="text" name="" id="" placeholder="여행지를 검색하세요." value="<%=search %>" required>
+                    <input type="text" name="search" id="search" placeholder="여행지를 검색하세요." value="<%=search %>" required>
                   </div>
                   <div class="search2">
                     <img src="<%=request.getContextPath() %>/resources/img/common/calendar.png" alt="calendar">

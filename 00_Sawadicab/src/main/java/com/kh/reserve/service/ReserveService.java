@@ -1,6 +1,6 @@
 package com.kh.reserve.service;
 
-import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -18,6 +18,8 @@ public class ReserveService {
 		Connection conn = getConnection();
 		
 		list = new ReserveDao().searchCompany(conn, rs);
+		
+		close(conn);
 		
 		return list;
 	}
