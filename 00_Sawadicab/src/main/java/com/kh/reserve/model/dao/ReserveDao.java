@@ -70,4 +70,53 @@ public class ReserveDao {
 		return list;
 	}
 
+	public ArrayList<Reserve> selectReserveList(Connection conn, String memberId) {
+		ArrayList<Reserve> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectReserveList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				list.add(
+						new Reserve(
+								rset.getInt("reserveNum"),
+								rset.getDate("checkIn"),
+								rset.getDate("checkOut"),
+								rset.getString("company_name"),
+								rset.getString("company_address")
+								)
+						);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+
+	public int deleteReserve(Connection conn, String userId, String userPwd) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteReserve");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 }
