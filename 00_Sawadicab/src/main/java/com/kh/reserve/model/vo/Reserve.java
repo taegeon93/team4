@@ -36,6 +36,16 @@ public class Reserve {
 	
 	
 
+
+	public Reserve(int reserveNum, Date checkIn, Date checkOut, String companyAddress, String companyName) {
+		super();
+		this.reserveNum = reserveNum;
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.companyAddress = companyAddress;
+		this.companyName = companyName;
+	}
+
 	public Reserve(String roomNum, String companyAddress, String companyName) {
 		super();
 		this.roomNum = roomNum;
