@@ -84,7 +84,7 @@ public class ReserveDao {
 			while(rset.next()) {
 				list.add(
 						new Reserve(
-								rset.getInt("reserveNum"),
+								rset.getInt("reserve_num"),
 								rset.getDate("checkIn"),
 								rset.getDate("checkOut"),
 								rset.getString("company_name"),
@@ -103,7 +103,7 @@ public class ReserveDao {
 		return list;
 	}
 
-	public int deleteReserve(Connection conn, String userId, String userPwd) {
+	public int deleteReserve(Connection conn, String userId, String userPwd, int reserveNum) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -112,11 +112,15 @@ public class ReserveDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
+			pstmt.setInt(2, reserveNum);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
-		
 		return result;
 	}
 
+	
 }

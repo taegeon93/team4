@@ -29,10 +29,10 @@ public class ReserveService {
 		return list;
 	}
 
-	public int deleteReserve(String userId, String userPwd) {
+	public int deleteReserve(String userId, String userPwd, int reserveNum) {
+		int result = 0;
 		Connection conn = getConnection();
-		int result = new ReserveDao().deleteReserve(conn, userId, userPwd);
-		
+		result = new ReserveDao().deleteReserve(conn, userId, userPwd, reserveNum);
 		if(result > 0) {
 			commit(conn);
 		} else {
@@ -41,6 +41,10 @@ public class ReserveService {
 		close(conn);
 		return result;
 	}
+
+
+
+	
 
 
 }

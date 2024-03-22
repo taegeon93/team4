@@ -54,6 +54,6 @@
 	</entry>
 	<entry key="deleteReserve">
 		DELETE FROM RESERVE
-		WHERE MEMBER_ID = ?
+		WHERE MEMBER_ID = ? AND RESERVE_NUM = ? 
 	</entry>
 </properties>

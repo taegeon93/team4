@@ -3,6 +3,7 @@
 <%@ page import="java.util.ArrayList, com.kh.reserve.model.vo.Reserve" %>    
 <%
 	ArrayList<Reserve> list = (ArrayList<Reserve>)request.getAttribute("list");
+	
 %>    
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,13 @@
 						<span class="reserveAddress"><%= r.getCompanyAddress() %></span>
 					</div>
 			
-					<div class="item_price"><button id="cancelBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button></div>
+					<div class="item_price">
+					<% if(r.getCheckIn().compareTo(new Date()) > 0 ) { %>
+					<button id="cancelBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button>
+					<% } else {%>
+					<button id="reviewBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
+					<% } %>
+					</div>
 					
 				</div>
 			<% } %>
@@ -59,14 +66,12 @@
                             <td>
                                 <input type="password" name="userPwd"  required />
                             </td>
-                        </tr>
-                        
+                        </tr>               
                         
                     </table>
                     <br>
                     <button type="submit"  class="btn btn-warning">예약 취소</button>
-              </form>
-       
+              </form>      
              
             </div>
            
@@ -86,8 +91,8 @@
             <div class="modal-body" align="center">
               <form action="" method="post" id="myform">
                   <!-- 아이디 정보 type='hidden' -->
-                  <input type ="hidden" name ="userId" value=""/>
-                  
+                  <input type ="hidden" name ="userId" value="<%= loginUser.getMemberId() %>"/>
+                  <input type ="hidden" name ="reserveNum" value = ""/>    
                     <table>
                         <tr>
                             <td>
@@ -119,11 +124,10 @@
         </div>
       </div>
       <script>
-      const cancelModal = document.getElementById('reserveCancel')
-
-      cancelModal.addEventListener('shown.bs.modal', () => {
-        const rNum = document.getElementById("cancelBtn").getAttribute("data-reservenum");
-        document.querySelector("input[name=reserveNum]").value = rNum;
+	      const cancelModal = document.getElementById('reserveCancel')
+	      cancelModal.addEventListener('shown.bs.modal', () => {
+	      const rNum = document.getElementById("cancelBtn").getAttribute("data-reservenum");
+	      document.querySelector("input[name=reserveNum]").value = rNum;
       })
       </script>
 </body>
