@@ -1,4 +1,4 @@
-.area {
+.mparea {
   height: 90px;
   display: flex;
   align-items: center;
@@ -7,7 +7,10 @@
 }
 form {
   margin: 50px;
-  margin-top: 10%;
+  margin-top: 9%;
+}
+#search_btn{
+	width: 70px;
 }
 
 .searchgroup {
@@ -20,7 +23,7 @@ form {
   display: flex;
   align-items: center;
   border: 1px solid #e2e2e2;
-  box-shadow: 1px 1px 1px 1px gray;
+  box-shadow: 1px 1px 1px 1px rgb(235, 235, 235);
   width: 400px;
   height: 40px;
 }

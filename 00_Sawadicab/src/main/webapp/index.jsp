@@ -14,31 +14,21 @@
 </head>
 <body>
 <%@include file="views/common/menubar.jsp" %>
-<% 
-	Date date = new Date();
-	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-	String today = dateFormat.format(date);
-%>
 
-<%if(alertMsg !=null){ %>
-<script>
-		alert("<%=alertMsg %>");		
-	</script>
-		<%session.removeAttribute("alertMsg"); %>
-<%} %>
 <main>
   <div class="backimg">
     <div class="area">
-      <form action="" method="get">
+      <form action="<%=request.getContextPath() %>/search.co" method="get">
+      	<input type="hidden" name="searchVal" value="1"/>
         <div class="searchgroup">
           <div class="search1">
             <img src="<%=request.getContextPath() %>/resources/mainimg/airplane.png" alt="airplane">
-            <input type="text" name="" id="" placeholder="여행지를 검색하세요." required>
+            <input type="text" name="search" id="search" placeholder="여행지를 검색하세요." required>
           </div>
           <div class="search2">
             <img src="<%=request.getContextPath() %>/resources/mainimg/calendar.png" alt="calendar">
-            <input type="date" name="" id="date1" onchange="date()" min="<%=today %>" required>~
-            <input type="date" name="" id="date2" required >
+            <input type="date" name="date1" id="date1" onchange="date()" min="<%=today %>" required>~
+            <input type="date" name="date2" id="date2" required >
           </div>
           <button type="submit" class="btn btn-primary">검색</button>
         </div>

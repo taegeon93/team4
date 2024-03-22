@@ -1,7 +1,6 @@
 const carousel = document.querySelector(".carousel"),
-firstImg = carousel.querySelectorAll("img")[0],
+firstImg = carousel.querySelectorAll("p")[0],
 arrowIcons = document.querySelectorAll(".wrapper i");
-
 
 let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
 
@@ -13,7 +12,7 @@ const showHideIcons = () => {
 
 arrowIcons.forEach(icon => {
     icon.addEventListener("click", () => {
-        let firstImgWidth = firstImg.clientWidth + 65;
+        let firstImgWidth = firstImg.clientWidth + 8;
         carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
         setTimeout(() => showHideIcons(), 60);
     });

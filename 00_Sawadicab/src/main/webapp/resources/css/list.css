@@ -1,0 +1,102 @@
+.sidebar {
+    min-width: 200px;
+    font-weight: bold; 
+    width: 15%; 
+    position: fixed;
+    top: 250px;
+    bottom: 0;  
+    left: 25px;
+    max-height: 300px;
+    border: 1px solid rgba(128, 128, 128, 0.959);
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px 0px gray;
+    padding-left: 30px;
+    
+}
+
+.sidebar-link {
+     height: 55px;
+     cursor: pointer;
+     
+    line-height: 55px;
+    margin-top: 15px;
+    
+}
+#mainSection{
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 1px 3px 5px 0px gray;
+  width: 70%;
+  
+  margin-top: 15%;
+  margin-left: 20%;
+  
+  
+  background-color: white;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 1000px;
+
+
+
+}
+
+.item{
+
+  width: 90%;
+  height: 270px;
+  box-shadow: 1px 3px 5px 0px gray;
+  margin: 4%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  min-width: 900px;
+  cursor: pointer;
+  
+}
+.item_name{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  
+  text-align: center;
+  
+  
+}
+.item > img{
+  
+  height: 270px;
+  width: 250px;
+}
+.companyName{
+  text-shadow: 1px 0px;
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+.companyAddress{
+  
+  text-shadow: 1px 0px;
+}
+.score{
+  text-shadow: 1px 0px;
+  
+}
+.item_price{
+  
+  display: flex;
+  width: 250px;
+  justify-items: center;
+}
+.item_price > button{
+  box-shadow: 1px 3px 5px 0px gray;
+  margin: auto;
+  margin-bottom: 30px;
+  width: 100px;
+}
+.score > img{
+	margin-bottom: 4px;
+	height: 20px;
+}
