@@ -35,12 +35,14 @@ public class ReserveDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setDate(1, rs.getCheckIn());
-			pstmt.setDate(2, rs.getCheckOut());
+			pstmt.setString(1, rs.getCompanyName());
+			pstmt.setString(2, rs.getCompanyName());
 			pstmt.setDate(3, rs.getCheckIn());
 			pstmt.setDate(4, rs.getCheckOut());
-			pstmt.setString(5, rs.getCompanyName());
-			pstmt.setString(6, rs.getCompanyName());
+			pstmt.setDate(5, rs.getCheckIn());
+			pstmt.setDate(6, rs.getCheckOut());
+			pstmt.setDate(7, rs.getCheckIn());
+			pstmt.setDate(8, rs.getCheckOut());
 			
 			rset = pstmt.executeQuery();
 			

@@ -26,21 +26,26 @@
 		WHERE CHECKIN NOT BETWEEN ? AND ?
 		        AND CHECKOUT NOT BETWEEN ? AND ?
 	 -->
-	 SELECT DISTINCT COMPANY_NUM,COMPANY_NAME,C.COMPANY_ADDRESS, C.COMPANY_CATEGORY, COMPANY_PICTURE, SCORE
-	FROM COMPANY C
-	    JOIN (
+SELECT C.*, S.SCORE
+
+FROM COMPANY C
+JOIN (
 	    SELECT COMPANY_NUM, NVL(AVG(SCORE),0) SCORE
 	    FROM REVIEW 
 	    RIGHT JOIN COMPANY USING (COMPANY_NUM)
-	    GROUP BY COMPANY_NUM
-	) SCORE USING(COMPANY_NUM)
-	LEFT JOIN (
-	    SELECT * 
-	    FROM RESERVE
-	    WHERE NOT (CHECKIN BETWEEN ? AND ?
-	        OR CHECKOUT BETWEEN ? AND ?)
-	) R USING(COMPANY_NAME)
-	WHERE (COMPANY_NAME LIKE '%' || ? || '%' OR
+	    GROUP BY COMPANY_NUM        
+	) S ON (C.COMPANY_NUM = S.COMPANY_NUM)
+    
+WHERE (COMPANY_NAME LIKE '%' || ? || '%' OR
 	            C.COMPANY_ADDRESS LIKE '%' || ? || '%')
+                
+AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
+                        WHERE ROOM_NUM NOT IN (
+                            SELECT ROOM_NUM FROM RESERVE 
+                            WHERE CHECKIN BETWEEN ? AND ?
+                                OR CHECKOUT BETWEEN ? AND ?
+                                OR (CHECKIN &lt; ? AND CHECKOUT &gt; ?)
+                                GROUP BY ROOM_NUM)
+                        GROUP BY COMPANY_NUM)
 	</entry>
 </properties>
