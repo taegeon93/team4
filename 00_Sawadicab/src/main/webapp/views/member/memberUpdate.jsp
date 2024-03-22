@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>JSP Project</title>
-<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/Update.css">
+<link rel="stylesheet" href="../../resources/css/Update.css">
 </head>
 <body>
     <%@include file="../common/menubar.jsp" %>
