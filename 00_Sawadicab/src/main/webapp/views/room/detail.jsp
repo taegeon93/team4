@@ -1,5 +1,17 @@
+<%@page import="com.kh.company.model.vo.Company"%>
+<%@page import="com.kh.room.model.vo.Room"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.kh.room.model.dao.RoomDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+
+	ArrayList<Room> rList = (ArrayList<Room>)request.getAttribute("rList");
+	Company c = (Company)request.getAttribute("company");
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +26,10 @@
 	<main>
      <div class="area">
             <div>
-                <img src="<%=request.getContextPath() %>/resources/img/company/1/신라.webp" alt="">
+                <img src="<%=request.getContextPath() %>/resources/img/company/<%=c.getCompanyNum() %>/<%=c.getCompanyPicture() %>" alt="">
             </div>
         </div>
-        <p class="fontsty">라한셀렉트 경주</p><br>
+        <p class="fontsty"><%=c.getCompanyName() %></p><br>
 
         <div class="area2">
 
@@ -73,7 +85,7 @@
 
             <div class="map-area">
                 <img src="<%=request.getContextPath()%>/resources/img/common/map.jpg" alt="지도">
-                <p>종로3가역 1번출구</p>
+                <p><%=c.getCompanyAddress() %></p>
             </div>
         </div>
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectCompany">
+		 SELECT COMPANY_NUM, COMPANY_NAME, COMPANY_ADDRESS,company_picture
+    FROM COMPANY
+    WHERE COMPANY_NUM =?
+	</entry>
+</properties>
