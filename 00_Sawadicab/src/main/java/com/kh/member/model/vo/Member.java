@@ -31,6 +31,8 @@ public class Member {
 		this.birthDate = birthDate;
 		this.phone = phone;
 	}
+	
+
 
 
 

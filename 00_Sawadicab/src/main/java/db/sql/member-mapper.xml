@@ -10,10 +10,23 @@
 		UPDATE MEMBER
 		SET STATUS = 'N'
 		WHERE MEMBER_ID = ? AND MEMBER_PW = ?
-
+	</entry>
 	<entry key="insertMember">
 		INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, DEFAULT)
 
 	</entry>
-
+	<entry key="updateMem">
+		UPDATE MEMBER
+		SET
+			MEMBER_PW = ?,
+			MEMBER_NAME = ?,
+			PHONE = ?,
+			BIRTH_DATE = ?
+			WHERE MEMBER_ID = ?
+			
+	</entry>
+	<entry key="selectMember">
+		SELECT * FROM MEMBER
+		WHERE MEMBER_ID = ?
+	</entry>
 </properties>

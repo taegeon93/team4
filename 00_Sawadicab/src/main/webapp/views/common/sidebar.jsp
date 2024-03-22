@@ -21,7 +21,7 @@
 	        <a href="reservePage.html"><div>예약내역</div></a>
 	    </div>
 	    <div class="sidebar-link">
-	        <a href="modify.html"><div>개인정보 수정</div></a>
+	        <a href="<%=request.getContextPath()%>/views/member/memberUpdate.jsp"><div>개인정보 수정</div></a>
 	    </div>
 </nav>
 </body>
