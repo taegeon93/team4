@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.vo.Review;
 
 public class ReserveDao {
 	private Properties prop = new Properties();
@@ -122,6 +123,42 @@ public class ReserveDao {
 			close(pstmt);
 		}
 		return result;
+	}
+
+	public ArrayList<Review> selectReview(Connection conn, int companyNum) {
+		ArrayList<Review> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, companyNum);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(
+							new Review(
+										rset.getString("member_name"),
+										rset.getString("review_info"),
+										rset.getInt("score"),
+										rset.getDate("write_day")
+									)
+						);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		return list;
 	}
 
 	

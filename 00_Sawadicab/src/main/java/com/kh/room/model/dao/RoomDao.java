@@ -35,7 +35,11 @@ private Properties prop = new Properties();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setDate(1, checkIN);
 			pstmt.setDate(2, checkOut);
-			pstmt.setInt(3, companyNum);
+			pstmt.setDate(3, checkIN);
+			pstmt.setDate(4, checkOut);
+			pstmt.setDate(5, checkIN);
+			pstmt.setDate(6, checkOut);
+			pstmt.setInt(7, companyNum);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -53,7 +57,6 @@ private Properties prop = new Properties();
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			close(rset);

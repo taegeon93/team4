@@ -12,7 +12,7 @@ const showHideIcons = () => {
 
 arrowIcons.forEach(icon => {
     icon.addEventListener("click", () => {
-        let firstImgWidth = firstImg.clientWidth + 8;
+        let firstImgWidth = firstImg.clientWidth + 15;
         carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
         setTimeout(() => showHideIcons(), 60);
     });

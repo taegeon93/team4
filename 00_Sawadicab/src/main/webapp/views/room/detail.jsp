@@ -1,3 +1,4 @@
+<%@page import="com.kh.reserve.model.vo.Review"%>
 <%@page import="com.kh.company.model.vo.Company"%>
 <%@page import="com.kh.room.model.vo.Room"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,7 +10,7 @@
 
 	ArrayList<Room> rList = (ArrayList<Room>)request.getAttribute("rList");
 	Company c = (Company)request.getAttribute("company");
-
+	ArrayList<Review> rvList = (ArrayList<Review>)request.getAttribute("rvList");
 
 %>
 <!DOCTYPE html>
@@ -36,49 +37,21 @@
             <div class="wrapper">
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <div class="carousel">
+                	<% for(Review r : rvList) { %>
                     <div style="margin-right: 15px;">
-                        <h6>홍길동</h6>
+                        <h6><%= r.getMemberId() %></h6>
                         <div>
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
+                            <p style="color: rgb(231, 228, 22);">
+                            	<% for(int i = 0; i < r.getScore(); i++) { %>
+                            	★
+                            	<% } for(int i = 0; i < 5-r.getScore(); i++) { %>
+                            	☆
+                            	<% } %>
+                            </p>
                         </div>
-                        <p style="word-wrap: break-word; white-space: break-spaces;">테스트 ㅁㄴㅇㄴㅁㅇㄴㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄹㄴㅇㄹ</p>
+                        <p style="word-wrap: break-word; white-space: break-spaces;"><%=r.getReviewInfo() %></p>
                     </div>
-                    <div>
-                        <h6>홍길동</h6>
-                        <div>
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                            <input type="radio" name="" id="">
-                        </div>
-                        <p style="word-wrap: break-word; white-space: break-spaces;">테스트 ㅁㄴㅇㄴㅁㅇㄴㅁㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄹㄴㅇㄹ</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
-                    <div>
-                        <p>asdasd</p>
-                    </div>
+                    <% } %>
                 </div>
                 <i id="right" class="fa-solid fa-angle-right"></i>
             </div>
@@ -100,23 +73,30 @@
 
         <div class="area3">
             <div class="reserve-area">
-                <div>
-                    <div class="itemimg"><img src="./img/img-3.jpg" alt=""></div>
-                    <p>디럭스 더블</p>
-                    <div class="iteminfo">
-                        <p>가격:340,000원/1박</p>
-                        <button class="btn btn-primary">예약</button>
-                    </div>
-                </div>
+               	<% for(Room r : rList) { %>
+	                <div>
+	                    <div class="itemimg"><img src="<%=request.getContextPath()%>/resources/img/company/<%=r.getCompanyNo() %>/<%=r.getRoomPicthre() %>" alt=""></div>
+	                    <p>
+		                    <%=r.getRoomName() %>
+		                    <br><br><br>
+		                    <span style="font-size: 15px;">체크인 : <%=r.getCheckTimeIn() %></span><br>
+		                    <span style="font-size: 15px;">체크아웃 : <%=r.getCheckTimeOut() %></span>
+	                    </p>
+	                    <div class="iteminfo">
+	                        <p><%=r.getPrice() %>/1박</p>
+	                        <button class="btn btn-primary">예약</button>
+	                    </div>
+	                </div>
                 <hr>
-                <div>
-                    <div class="itemimg"><img src="./img/img-5.jpg" alt=""></div>
-                    <p>스탠다드</p>
-                    <div class="iteminfo">
-                        <p>가격:270,000원/1박</p>
-                        <button class="btn btn-secondary" onclick="false">예약불가</button>
-                    </div>
-                </div>
+				<% } %>
+<!--                 <div> -->
+<!--                     <div class="itemimg"><img src="./img/img-5.jpg" alt=""></div> -->
+<!--                     <p>스탠다드</p> -->
+<!--                     <div class="iteminfo"> -->
+<!--                         <p>가격:270,000원/1박</p> -->
+<!--                         <button class="btn btn-secondary" onclick="false">예약불가</button> -->
+<!--                     </div> -->
+<!--                 </div> -->
             </div>
         </div>
         </div>

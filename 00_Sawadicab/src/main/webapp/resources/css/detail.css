@@ -49,7 +49,8 @@ main {
   box-shadow: 1px 1px 5px 2px #E2E2E2;
   border-radius: 20px;
   height: 70%;
-  padding: 7%;
+  width: 100%;
+  padding: 15%;
 }
 .carousel p{
   object-fit: cover;

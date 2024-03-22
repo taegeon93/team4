@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.dao.ReserveDao;
 import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.vo.Review;
 
 
 public class ReserveService {
@@ -40,6 +41,16 @@ public class ReserveService {
 		}
 		close(conn);
 		return result;
+	}
+
+	public ArrayList<Review> selectReview(int companyNum) {
+		ArrayList<Review> list = new ArrayList<>();
+		Connection conn = getConnection();
+		
+		list = new ReserveDao().selectReview(conn, companyNum);
+		close(conn);
+		
+		return list;
 	}
 
 
