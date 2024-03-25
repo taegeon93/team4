@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.kh.reserve.model.vo.Review"%>
 <%@page import="com.kh.company.model.vo.Company"%>
 <%@page import="com.kh.room.model.vo.Room"%>
@@ -11,6 +12,8 @@
 	ArrayList<Room> rList = (ArrayList<Room>)request.getAttribute("rList");
 	Company c = (Company)request.getAttribute("company");
 	ArrayList<Review> rvList = (ArrayList<Review>)request.getAttribute("rvList");
+	DecimalFormat format = new DecimalFormat("###,###,###");
+	
 
 %>
 <!DOCTYPE html>
@@ -83,7 +86,7 @@
 		                    <span style="font-size: 15px;">체크아웃 : <%=r.getCheckTimeOut() %></span>
 	                    </p>
 	                    <div class="iteminfo">
-	                        <p><%=r.getPrice() %>/1박</p>
+	                        <p><%=format.format(r.getPrice()) %>원/1박</p>
 	                        <button class="btn btn-primary">예약</button>
 	                    </div>
 	                </div>
