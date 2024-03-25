@@ -45,7 +45,8 @@ public class RoomSelectController extends HttpServlet {
 		Company c = new CompanyService().selectCompany(companyNum);
 		ArrayList<Review> rvList = new ReserveService().selectReview(companyNum);
 		
-		
+		request.setAttribute("checkIn", checkIN);
+		request.setAttribute("checkOut", checkOut);
 		request.setAttribute("company", c);
 		request.setAttribute("rList", list);
 		request.setAttribute("rvList", rvList);
