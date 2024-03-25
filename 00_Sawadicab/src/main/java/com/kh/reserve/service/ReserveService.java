@@ -53,6 +53,25 @@ public class ReserveService {
 		return list;
 	}
 
+	public int insertReivew(Review review) {
+		int result = 0;
+		Connection conn = getConnection();
+		// COMPANY_NUM 조회
+		int companyNum = new ReserveDao().selectCompanyNum(conn, review.getReserveNum());
+		
+		if (companyNum > 0) {
+			review.setCompanyNum(companyNum);
+			result = new ReserveDao().insertReview(conn, review);
+		}
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
+
 
 
 	

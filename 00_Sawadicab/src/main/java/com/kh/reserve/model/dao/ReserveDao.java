@@ -160,6 +160,45 @@ public class ReserveDao {
 		
 		return list;
 	}
+	
+	public int selectCompanyNum(Connection conn, int reserveNum) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectCompanyNum");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reserveNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
+	public int insertReview(Connection conn, Review review) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertReview");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, review.getReserveNum());
+			pstmt.setString(2, review.getMemberId());
+			pstmt.setInt(3, review.getCompanyNum());
+			pstmt.setString(4, review.getReviewInfo());
+			pstmt.setInt(5, review.getScore());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }
