@@ -31,3 +31,13 @@ const autoSlide = () => {
     }
     carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
 }
+
+$(function(){
+    $.ajax({
+        url: 'select.co',
+        type: 'get',
+        success: function(){
+            console.log("성공");
+        }
+    });
+})
