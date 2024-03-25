@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.kh.company.model.dto.MainCompanyDto;
 import com.kh.company.service.CompanyService;
 
@@ -34,8 +35,11 @@ public class CompanySelectController extends HttpServlet {
 
 		ArrayList<MainCompanyDto> list = new CompanyService().selectMainCompany();
 		
-		response.setContentType("text/html; charset=UTF-8");
-		response.getWriter().print(list);
+		Gson gsonArr = new Gson();
+		
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(gsonArr.toJson(list));
+//		response.getWriter().print(list);
 	}
 
 	/**
