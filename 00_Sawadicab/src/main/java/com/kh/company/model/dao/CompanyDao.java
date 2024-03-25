@@ -8,9 +8,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.common.JDBCTemplate.*;
+import com.kh.company.model.dto.MainCompanyDto;
 import com.kh.company.model.vo.Company;
 import com.kh.reserve.model.dao.ReserveDao;
 
@@ -57,6 +59,37 @@ private Properties prop = new Properties();
 		}
 				
 		return c;
+	}
+	public ArrayList<MainCompanyDto> selectMainCompany(Connection conn) {
+		ArrayList<MainCompanyDto> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("mainCompanySelect");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new MainCompanyDto(
+							rset.getInt("company_num"),
+							rset.getString("company_name"),
+							rset.getString("company_picture"),
+							rset.getDouble("score")
+						));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		return list;
 	}
 
 }

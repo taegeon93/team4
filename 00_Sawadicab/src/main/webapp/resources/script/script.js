@@ -36,8 +36,10 @@ $(function(){
     $.ajax({
         url: 'select.co',
         type: 'get',
-        success: function(){
+        success: function(list){
+            console.log(list);
             console.log("성공");
+            
         }
     });
 })

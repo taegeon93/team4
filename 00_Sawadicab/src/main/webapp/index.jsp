@@ -1,7 +1,10 @@
+<%@page import="com.kh.company.model.dto.MainCompanyDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% ArrayList<MainCompanyDto> mcdList = new ArrayList<>(); %>
   
 <!DOCTYPE html>
 <html>
@@ -43,8 +46,8 @@
         <i id="left" class="fa-solid fa-angle-left"></i>
         <div class="carousel">
           <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-1.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
+            <img id="img-url" src="<%=request.getContextPath() %>/resources/mainimg/img-1.jpg" alt="img" draggable="false">
+            <p id="text">asdasd</p>
           </div>
           <div>
             <img src="<%=request.getContextPath() %>/resources/mainimg/img-2.jpg" alt="img" draggable="false">

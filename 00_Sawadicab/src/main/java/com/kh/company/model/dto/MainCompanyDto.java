@@ -5,12 +5,12 @@ public class MainCompanyDto {
 	private int companyNum;
 	private String companyName;
 	private String companyPicthre;
-	private int score;
+	private double score;
 	
 	
 	
 	
-	public MainCompanyDto(int companyNum, String companyName, String companyPicthre, int score) {
+	public MainCompanyDto(int companyNum, String companyName, String companyPicthre, double score) {
 		super();
 		this.companyNum = companyNum;
 		this.companyName = companyName;
@@ -35,10 +35,10 @@ public class MainCompanyDto {
 	public void setCompanyPicthre(String companyPicthre) {
 		this.companyPicthre = companyPicthre;
 	}
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 	@Override
