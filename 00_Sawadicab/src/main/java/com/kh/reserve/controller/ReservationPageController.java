@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.vo.Member;
+import com.kh.reserve.model.dto.ReserveDto;
 import com.kh.reserve.model.vo.Reserve;
 import com.kh.reserve.service.ReserveService;
 

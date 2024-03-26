@@ -14,7 +14,7 @@ import com.kh.company.model.vo.Company;
 import com.kh.company.service.CompanyService;
 import com.kh.reserve.model.vo.Review;
 import com.kh.reserve.service.ReserveService;
-import com.kh.room.model.vo.Room;
+import com.kh.room.model.dto.RoomDto;
 import com.kh.room.service.RoomService;
 
 /**
@@ -41,7 +41,7 @@ public class RoomSelectController extends HttpServlet {
 		Date checkOut= Date.valueOf(request.getParameter("checkout"));
 		
 		
-		ArrayList<Room> list = new RoomService().selectRoom(companyNum,checkIN,checkOut);
+		ArrayList<RoomDto> list = new RoomService().selectRoom(companyNum,checkIN,checkOut);
 		Company c = new CompanyService().selectCompany(companyNum);
 		ArrayList<Review> rvList = new ReserveService().selectReview(companyNum);
 		

@@ -14,8 +14,9 @@ import java.util.Properties;
 
 import com.kh.company.model.vo.Company;
 import com.kh.member.model.vo.Member;
-import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.dto.ReserveDto;
 import com.kh.reserve.model.vo.Review;
+import com.kh.reserve.model.vo.Reserve;
 
 public class ReserveDao {
 	private Properties prop = new Properties();
@@ -28,7 +29,7 @@ public class ReserveDao {
 		}
 	}
 
-	public ArrayList<Company> searchCompany(Connection conn, Reserve rs) {
+	public ArrayList<Company> searchCompany(Connection conn, ReserveDto rs) {
 		ArrayList<Company> list = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;

@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import com.kh.company.model.vo.Company;
 import com.kh.member.model.vo.Member;
 import com.kh.reserve.model.dao.ReserveDao;
-import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.dto.ReserveDto;
 import com.kh.reserve.model.vo.Review;
-
+import com.kh.reserve.model.vo.Reserve;
 
 public class ReserveService {
 
-	public ArrayList<Company> searchCompany(Reserve rs) {
+	public ArrayList<Company> searchCompany(ReserveDto rs) {
 		ArrayList<Company> list = new ArrayList<>();
 		
 		Connection conn = getConnection();
