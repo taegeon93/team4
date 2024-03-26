@@ -34,6 +34,13 @@ public class ReserveDto {
 	
 	
 	
+	public ReserveDto(Date checkIn, Date checkOut, String companyName) {
+		super();
+		this.checkIn = checkIn;
+		this.checkOut = checkOut;
+		this.companyName = companyName;
+	}
+
 	public ReserveDto(String roomNum, String companyAddress, String companyName) {
 		super();
 		this.companyAddress = companyAddress;

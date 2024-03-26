@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.company.model.vo.Company;
-import com.kh.reserve.model.vo.Reserve;
+
+import com.kh.reserve.model.dto.ReserveDto;
 import com.kh.reserve.service.ReserveService;
 
 /**
@@ -38,7 +39,7 @@ public class CompanySearchController extends HttpServlet {
 		Date date1 = Date.valueOf(request.getParameter("date1"));
 		Date date2 = Date.valueOf(request.getParameter("date2"));
 		
-		Reserve rs = new Reserve(date1, date2, search);
+		ReserveDto rs = new ReserveDto(date1, date2, search);
 		ArrayList<Company> list = new ReserveService().searchCompany(rs);
 				
 		request.setAttribute("list", list);
