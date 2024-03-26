@@ -56,7 +56,7 @@ $(function(){
                     <div>
                         <div class="crtext-area">
                             <span class="title">${el.companyName}</span>
-                            <span class="score">★<span>${el.score}</span></span>
+                            <span class="score">★<span>${el.score.toFixed(1)}</span></span>
                         </div>
                         ${el.companyAddress}
                     </div>
