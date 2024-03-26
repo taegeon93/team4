@@ -36,13 +36,13 @@ public class ReviewInsertController extends HttpServlet {
 		String userId = request.getParameter("userId");
 		int reserveNum = Integer.parseInt(request.getParameter("reserveNum"));
 		String content = request.getParameter("content");
-		String[] reviewList = request.getParameterValues("reviewStar");
+		int reviewStar = Integer.parseInt(request.getParameter("reviewStar"));
 		
 		Review review = new Review();
 		review.setMemberId(userId);
 		review.setReserveNum(reserveNum);
 		review.setReviewInfo(content);
-		review.setScore(reviewList.length);
+		review.setScore(reviewStar);
 		
 		int result = new ReserveService().insertReivew(review);
 		if(result > 0) {
