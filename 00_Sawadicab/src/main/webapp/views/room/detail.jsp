@@ -1,7 +1,7 @@
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="com.kh.reserve.model.vo.Review"%>
 <%@page import="com.kh.company.model.vo.Company"%>
-<%@page import="com.kh.room.model.vo.Room"%>
+<%@page import="com.kh.room.model.dto.RoomDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.kh.room.model.dao.RoomDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,7 +9,7 @@
     
 <%
 
-	ArrayList<Room> rList = (ArrayList<Room>)request.getAttribute("rList");
+	ArrayList<RoomDto> rList = (ArrayList<RoomDto>)request.getAttribute("rList");
 	Company c = (Company)request.getAttribute("company");
 	ArrayList<Review> rvList = (ArrayList<Review>)request.getAttribute("rvList");
 	DecimalFormat format = new DecimalFormat("###,###,###");
@@ -79,7 +79,7 @@
 
         <div class="area3">
             <div class="reserve-area">
-               	<% for(Room r : rList) { %>
+               	<% for(RoomDto r : rList) { %>
 	                <div class="roomNum" id="<%= r.getRoomNum() %>">
                         <input type="hidden" id="checkIn" value="<%=checkIn%>"/>
                          <input type="hidden" id="checkOut" value="<%=checkOut%>"/>
