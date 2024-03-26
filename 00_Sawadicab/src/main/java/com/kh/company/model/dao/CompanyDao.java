@@ -77,7 +77,8 @@ private Properties prop = new Properties();
 							rset.getInt("company_num"),
 							rset.getString("company_name"),
 							rset.getString("company_picture"),
-							rset.getDouble("score")
+							rset.getDouble("score"),
+							rset.getString("company_address")
 						));
 			}
 			

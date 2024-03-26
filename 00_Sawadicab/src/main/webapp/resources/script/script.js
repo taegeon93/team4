@@ -43,7 +43,13 @@ $(function(){
                 var result = `
                 <div>
                     <img src="/Sawadicab/resources/img/company/${el.companyNum}/${el.companypicture}" alt="img" draggable="false">
-                    <p>${el.companyName}${el.score}</p>
+                    <div>
+                        <div class="crtext-area">
+                            <span class="title">${el.companyName}</span>
+                            <span class="score">★<span>${el.score}</span></span>
+                        </div>
+                        ${el.companyAddress}
+                    </div>
                 </div>
                 `;
 

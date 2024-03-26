@@ -6,17 +6,23 @@ public class MainCompanyDto {
 	private String companyName;
 	private String companypicture;
 	private double score;
+	private String companyAddress;
 	
 	
-	
-	
-	public MainCompanyDto(int companyNum, String companyName, String companypicture, double score) {
+	public MainCompanyDto() {
+		super();
+	}
+
+	public MainCompanyDto(int companyNum, String companyName, String companypicture, double score,
+			String companyAddress) {
 		super();
 		this.companyNum = companyNum;
 		this.companyName = companyName;
 		this.companypicture = companypicture;
 		this.score = score;
+		this.companyAddress = companyAddress;
 	}
+
 	public int getCompanyNum() {
 		return companyNum;
 	}
@@ -41,11 +47,22 @@ public class MainCompanyDto {
 	public void setScore(double score) {
 		this.score = score;
 	}
+	
+	public String getCompanyAddress() {
+		return companyAddress;
+	}
+
+	public void setCompanyAddress(String companyAddress) {
+		this.companyAddress = companyAddress;
+	}
+
 	@Override
 	public String toString() {
 		return "MainCompanyDto [companyNum=" + companyNum + ", companyName=" + companyName + ", companypicture="
-				+ companypicture + ", score=" + score + "]";
+				+ companypicture + ", score=" + score + ", companyAddress=" + companyAddress + "]";
 	}
+
+
 	
 	
 }
