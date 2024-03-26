@@ -92,5 +92,40 @@ private Properties prop = new Properties();
 		
 		return list;
 	}
+	public Company detailCompanySelect(Connection conn, int roomNum) {
+		Company c = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("detailCompanySelect");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, roomNum);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				 c= new Company(
+						 		rset.getString("company_name"),
+						 		rset.getString("company_address"),
+						 		rset.getInt("company_num")
+						 		);
+				 
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		
+		
+		
+		return c;
+	}
 
 }

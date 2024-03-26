@@ -34,7 +34,7 @@
 					<% if(r.getCheckIn().compareTo(new Date()) > 0 ) { %>
 					<button id="cancelBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button>
 					<% } else {%>
-					<button id="reviewBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#review" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
+					<button id="reviewBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reserveReview" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
 					<% } %>
 					</div>
 					
@@ -87,7 +87,7 @@
         </div>
       </div>
       <!-------------->
-      <div class="modal fade" id="review" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="reserveReview" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
               <!-- 모달 헤더 부분 -->
@@ -97,19 +97,18 @@
             </div>
             <!-- 모달 바디 부분 -->
             <div class="modal-body" align="center">
-              <form action="" method="post" id="myform">
+              <form action="insert.re" method="post" id="myform">
                   <!-- 아이디 정보 type='hidden' -->
                   <input type ="hidden" name ="userId" value="<%= loginUser.getMemberId() %>"/>
                   <input type ="hidden" name ="reserveNum" value = ""/>    
                     <table>
                         <tr>
                             <td>
-                                <textarea name="reviewText" cols="40" rows="15" required style="resize: none;"></textarea>
+                                <textarea name="content" cols="40" rows="15" required style="resize: none;"></textarea>
                             </td>
                         </tr>  
                     </table>
-                    <fieldset>
-                        
+                    <fieldset>                    
                         <input type="radio" name="reviewStar" value="5" id="rate1"><label
                             for="rate1">★</label>
                         <input type="radio" name="reviewStar" value="4" id="rate2"><label
@@ -123,19 +122,24 @@
                     </fieldset>
                     <br>
                     <button type="submit"  class="btn btn-warning">작성</button>
+                    <button type="reset" class="btn btn-secondary">초기화</button>
               </form>
-       
-             
-            </div>
-           
+            </div>           
           </div>
         </div>
       </div>
       <script>
-	      const cancelModal = document.getElementById('reserveCancel')
+      $(function(){
+    	  const cancelModal = document.getElementById('reserveCancel')
 	      cancelModal.addEventListener('shown.bs.modal', () => {
-	      const rNum = document.getElementById("cancelBtn").getAttribute("data-reservenum");
-	      document.querySelector("input[name=reserveNum]").value = rNum;
+	      	const rNum = document.getElementById("cancelBtn").getAttribute("data-reservenum");
+	      	document.querySelector("#reserveCancel input[name=reserveNum]").value = rNum;
+      	  })
+      	  const reviewModal = document.getElementById('reserveReview')
+	      reviewModal.addEventListener('shown.bs.modal', () => {
+	      	const rNum = document.getElementById("reviewBtn").getAttribute("data-reservenum");
+	      	document.querySelector("#reserveReview input[name=reserveNum]").value = rNum;
+      	  })
       })
       </script>
 </body>

@@ -5,6 +5,7 @@ import static com.kh.common.JDBCTemplate.close;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.company.model.vo.Company;
+import com.kh.member.model.vo.Member;
 import com.kh.reserve.model.vo.Reserve;
 import com.kh.reserve.model.vo.Review;
 
@@ -161,5 +163,71 @@ public class ReserveDao {
 		return list;
 	}
 
+	public int insertReserve(Connection conn, Date checkIn, Date checkOut,int roomNum, Company c, Member m) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertReserve");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getMemberId());
+			pstmt.setInt(2, roomNum);
+			pstmt.setDate(3, checkIn);
+			pstmt.setDate(4, checkOut);
+			pstmt.setString(5,c.getCompanyAddress());
+			pstmt.setString(6,c.getCompanyName());
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+				
+		
+		return result;
+	}
+
+	
+	public int selectCompanyNum(Connection conn, int reserveNum) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("selectCompanyNum");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reserveNum);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int insertReview(Connection conn, Review review) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertReview");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, review.getReserveNum());
+			pstmt.setString(2, review.getMemberId());
+			pstmt.setInt(3, review.getCompanyNum());
+			pstmt.setString(4, review.getReviewInfo());
+			pstmt.setInt(5, review.getScore());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 	
 }

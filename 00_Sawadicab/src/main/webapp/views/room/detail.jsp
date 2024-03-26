@@ -80,8 +80,10 @@
         <div class="area3">
             <div class="reserve-area">
                	<% for(Room r : rList) { %>
-	                <div>
-                        <input type="hidden" id="checkIn" value=""/>
+	                <div class="roomNum" id="<%= r.getRoomNum() %>">
+                        <input type="hidden" id="checkIn" value="<%=checkIn%>"/>
+                         <input type="hidden" id="checkOut" value="<%=checkOut%>"/>
+                         <input type="hidden" style="" id="roomNum" value="<%=r.getRoomNum()%>"/>
 	                    <div class="itemimg"><img src="<%=request.getContextPath()%>/resources/img/company/<%=r.getCompanyNo() %>/<%=r.getRoomPicthre() %>" alt=""></div>
 	                    <p>
 		                    <%=r.getRoomName() %>
@@ -91,7 +93,7 @@
 	                    </p>
 	                    <div class="iteminfo">
 	                        <p><%=format.format(r.getPrice()) %>원/1박</p>
-	                        <button class="btn btn-primary">예약</button>
+	                        <button class="reserveBtn btn btn-primary">예약</button>
 	                    </div>
 	                </div>
                 <hr>
@@ -147,6 +149,14 @@
     setTimeout(function(){
         getPoint();
     }, 1000);
+
+    onload= function(){
+        $('.reserveBtn').click(function(e){
+            const roomNum = e.target.closest('.roomNum');
+            location.href="<%=request.getContextPath()%>/insertReserve.me?roomNum="+roomNum.id+"&checkIn=<%=checkIn%>&checkOut=<%=checkOut%>"
+            
+        });
+    }
     </script>
 
 </body>
