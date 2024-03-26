@@ -38,15 +38,25 @@ $(function(){
         success: function(list){
             console.log(typeof list, list);
             console.log("성공");
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            var nextday = ('0' + (today.getDate()+1)).slice(-2);
+
+            var date = year + '-' + month + '-' + day;
+            var nextDate = year + '-' + month + '-' + nextday;
+            
 
             list.forEach (function (el, index) {
                 var result = `
-                <div>
+                <div onclick="location.href='/Sawadicab/detail.me?companyNum=${el.companyNum}&checkin=${date}&checkout=${nextDate}'">
                     <img src="/Sawadicab/resources/img/company/${el.companyNum}/${el.companypicture}" alt="img" draggable="false">
                     <div>
                         <div class="crtext-area">
                             <span class="title">${el.companyName}</span>
-                            <span class="score">★<span>${el.score}</span></span>
+                            <span class="score">★<span>${el.score.toFixed(1)}</span></span>
                         </div>
                         ${el.companyAddress}
                     </div>
