@@ -21,7 +21,7 @@
             <div class="btn-area">
                 <button id="modify-btn" class="btn btn-secondary" >회원정보수정</button>
                 <br><br>
-                <button id="modify-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">회원탈퇴</button>
+                <button id="delete-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">회원탈퇴</button>
             </div>
         </div>
 		<div class="modal fade" id="deleteUserModal">

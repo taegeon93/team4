@@ -1,7 +1,10 @@
+<%@page import="com.kh.company.model.dto.MainCompanyDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% ArrayList<MainCompanyDto> mcdList = new ArrayList<>(); %>
   
 <!DOCTYPE html>
 <html>
@@ -41,43 +44,7 @@
     <h5>인기 추천 숙소</h5><br>
     <div class="wrapper">
         <i id="left" class="fa-solid fa-angle-left"></i>
-        <div class="carousel">
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-1.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-2.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-3.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-4.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-5.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-6.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-7.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-8.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
-          <div>
-            <img src="<%=request.getContextPath() %>/resources/mainimg/img-9.jpg" alt="img" draggable="false">
-            <p>asdasd</p>
-          </div>
+        <div id="test11" class="carousel">
         </div>
         <i id="right" class="fa-solid fa-angle-right"></i>
       </div>

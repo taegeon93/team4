@@ -4,17 +4,17 @@ public class MainCompanyDto {
 	
 	private int companyNum;
 	private String companyName;
-	private String companyPicthre;
-	private int score;
+	private String companypicture;
+	private double score;
 	
 	
 	
 	
-	public MainCompanyDto(int companyNum, String companyName, String companyPicthre, int score) {
+	public MainCompanyDto(int companyNum, String companyName, String companypicture, double score) {
 		super();
 		this.companyNum = companyNum;
 		this.companyName = companyName;
-		this.companyPicthre = companyPicthre;
+		this.companypicture = companypicture;
 		this.score = score;
 	}
 	public int getCompanyNum() {
@@ -29,22 +29,22 @@ public class MainCompanyDto {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getCompanyPicthre() {
-		return companyPicthre;
+	public String getCompanypicture() {
+		return companypicture;
 	}
-	public void setCompanyPicthre(String companyPicthre) {
-		this.companyPicthre = companyPicthre;
+	public void setCompanypicture(String companypicture) {
+		this.companypicture = companypicture;
 	}
-	public int getScore() {
+	public double getScore() {
 		return score;
 	}
-	public void setScore(int score) {
+	public void setScore(double score) {
 		this.score = score;
 	}
 	@Override
 	public String toString() {
-		return "MainCompanyDto [companyNum=" + companyNum + ", companyName=" + companyName + ", companyPicthre="
-				+ companyPicthre + ", score=" + score + "]";
+		return "MainCompanyDto [companyNum=" + companyNum + ", companyName=" + companyName + ", companypicture="
+				+ companypicture + ", score=" + score + "]";
 	}
 	
 	

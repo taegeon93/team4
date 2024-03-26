@@ -3,7 +3,7 @@
     border-radius: 10px;
     box-shadow: 1px 3px 5px 0px gray;
     width: 70%;
-    height: 700px;
+    height: auto;
     margin-top: 10%;
     margin-left: 20%;
     
@@ -22,7 +22,7 @@
 .item{
 
     width: 90%;
-    height: 600px;
+    height: 300px;
     box-shadow: 1px 3px 5px 0px gray;
     margin: 4%;
     border-radius: 10px;

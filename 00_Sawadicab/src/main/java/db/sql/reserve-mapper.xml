@@ -82,4 +82,18 @@ AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
 	
 	
 	
+	<entry key="selectCompanyNum">
+		SELECT COMPANY_NUM
+		FROM COMPANY C JOIN RESERVE R ON (C.COMPANY_NAME = R.COMPANY_NAME AND C.COMPANY_ADDRESS = R.COMPANY_ADDRESS)
+		WHERE RESERVE_NUM = ?
+	</entry>
+	<entry key="insertReview">
+		INSERT INTO REVIEW 
+				VALUES ( ?
+					   , ?
+					   , ?
+					   , ?
+					   , ?
+					   , SYSDATE )
+	</entry>	
 </properties>

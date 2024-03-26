@@ -1,7 +1,6 @@
 const carousel = document.querySelector(".carousel"),
-firstImg = carousel.querySelectorAll("img")[0],
 arrowIcons = document.querySelectorAll(".wrapper i");
-
+let firstImg = carousel.querySelectorAll("img")[0];
 
 let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
 
@@ -36,8 +35,26 @@ $(function(){
     $.ajax({
         url: 'select.co',
         type: 'get',
-        success: function(){
+        success: function(list){
+            console.log(typeof list, list);
             console.log("성공");
+
+            list.forEach (function (el, index) {
+                var result = `
+                <div>
+                    <img src="/Sawadicab/resources/img/company/${el.companyNum}/${el.companypicture}" alt="img" draggable="false">
+                    <p>${el.companyName}${el.score}</p>
+                </div>
+                `;
+
+                // $(".carousel").html(result);
+                document.getElementById("test11").innerHTML += result;
+
+                firstImg = carousel.querySelectorAll("img")[0];
+              });
+        },
+        error:function (error) {
+            console.log(error);
         }
     });
 })
