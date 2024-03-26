@@ -13,6 +13,14 @@ public class Company {
 	}
 	
 
+	public Company(String companyName, String companyAddress,int companyNum) {
+		super();
+		this.companyName = companyName;
+		this.companyAddress = companyAddress;
+		this.companyNum = companyNum;
+	}
+
+
 	public Company(int companyNum, String companyName, String companyAddress, String companyPicture) {
 		super();
 		this.companyNum = companyNum;

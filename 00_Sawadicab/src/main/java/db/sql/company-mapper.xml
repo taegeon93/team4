@@ -17,4 +17,9 @@
         ORDER BY SCORE DESC) USING(COMPANY_NUM)
 	
 	</entry>
+	<entry key="detailCompanySelect">
+		SELECT COMPANY_NAME, COMPANY_ADDRESS,company_num
+	FROM COMPANY JOIN ROOM USING(COMPANY_NUM)
+	WHERE ROOM_NUM = ?
+	</entry>
 </properties>

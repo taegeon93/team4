@@ -20,5 +20,15 @@ public class CompanyService {
 		return c;
 	}
 
+	public Company detailCompanySelect(int roomNum) {
+		
+		Connection conn = getConnection();
+		Company c = new CompanyDao().detailCompanySelect(conn,roomNum);
+		
+		close(conn);
+		
+		return c;
+	}
+
 
 }

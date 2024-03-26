@@ -3,9 +3,11 @@ package com.kh.reserve.service;
 import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import com.kh.company.model.vo.Company;
+import com.kh.member.model.vo.Member;
 import com.kh.reserve.model.dao.ReserveDao;
 import com.kh.reserve.model.vo.Reserve;
 import com.kh.reserve.model.vo.Review;
@@ -51,6 +53,20 @@ public class ReserveService {
 		close(conn);
 		
 		return list;
+	}
+
+	public int insertReserve(int roomNum, Date checkIn, Date checkOut,Company c, Member m) {
+		
+		Connection conn = getConnection();
+		int result = new ReserveDao().insertReserve(conn,checkIn,checkOut,roomNum,c,m);
+		if(result >0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		
+		return result;
 	}
 
 

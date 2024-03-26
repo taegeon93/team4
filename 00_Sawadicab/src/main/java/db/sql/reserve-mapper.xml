@@ -76,6 +76,9 @@ AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
 		JOIN MEMBER USING(MEMBER_ID)
 		WHERE COMPANY_NUM = ?
 	</entry>
+	<entry key="insertReserve">
+		INSERT INTO Reserve VALUES (SEQ_RESERVE.NEXTVAL,?,?,?,?,?,?)
+	</entry>
 	
 	
 	
