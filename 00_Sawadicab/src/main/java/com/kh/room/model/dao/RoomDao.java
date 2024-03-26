@@ -12,7 +12,7 @@ import java.util.Properties;
 import static com.kh.common.JDBCTemplate.*;
 
 import com.kh.reserve.model.dao.ReserveDao;
-import com.kh.room.model.vo.Room;
+import com.kh.room.model.dto.RoomDto;
 
 public class RoomDao {
 private Properties prop = new Properties();
@@ -25,8 +25,8 @@ private Properties prop = new Properties();
 		}
 	}
 
-	public ArrayList<Room> selectRoom(int companyNum, Date checkIN, Date checkOut,Connection conn) {
-		ArrayList<Room> list = new ArrayList<>();
+	public ArrayList<RoomDto> selectRoom(int companyNum, Date checkIN, Date checkOut,Connection conn) {
+		ArrayList<RoomDto> list = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;	
@@ -43,7 +43,7 @@ private Properties prop = new Properties();
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				 list.add( new Room(
+				 list.add( new RoomDto(
 						rset.getInt("company_num"),
 						rset.getString("company_name"),
 						rset.getInt("room_num"),

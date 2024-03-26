@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import static com.kh.common.JDBCTemplate.*;
 
 import com.kh.room.model.dao.RoomDao;
-import com.kh.room.model.vo.Room;
+import com.kh.room.model.dto.RoomDto;
 
 public class RoomService {
 
-	public ArrayList<Room> selectRoom(int companyNum, Date checkIN, Date checkOut) {
-		ArrayList<Room> list = new ArrayList<>();
+	public ArrayList<RoomDto> selectRoom(int companyNum, Date checkIN, Date checkOut) {
+		ArrayList<RoomDto> list = new ArrayList<>();
 		
 		Connection conn = getConnection();
 		

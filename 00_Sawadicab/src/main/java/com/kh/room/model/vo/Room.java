@@ -1,58 +1,42 @@
 package com.kh.room.model.vo;
 
 public class Room {
-
-	private int companyNo;
-	private String companyName;
-	private int roomNum;
+	private int RoomNum;
+	private int companyNum;
 	private int price;
-	private String roomName;
+	private String roomNmae;
 	private String checkTimeIn;
-	private String checkTimeOut;
-	private String roomPicthre;
-	private String companyPicthre;
+	private String dheckTimeOut;
+	private String roomInfo;
+	private String roomPicture;
 	
-	
-	
-	
+	public Room(int roomNum, int companyNum, int price, String roomNmae, String checkTimeIn, String dheckTimeOut,
+			String roomInfo, String roomPicture) {
+		super();
+		RoomNum = roomNum;
+		this.companyNum = companyNum;
+		this.price = price;
+		this.roomNmae = roomNmae;
+		this.checkTimeIn = checkTimeIn;
+		this.dheckTimeOut = dheckTimeOut;
+		this.roomInfo = roomInfo;
+		this.roomPicture = roomPicture;
+	}
 	public Room() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	public Room(int companyNo, String companyName, int roomNum, int price, String roomName, String checkTimeIn,
-			String checkTimeOut, String roomPicthre, String companyPicthre) {
-		super();
-		this.companyNo = companyNo;
-		this.companyName = companyName;
-		this.roomNum = roomNum;
-		this.price = price;
-		this.roomName = roomName;
-		this.checkTimeIn = checkTimeIn;
-		this.checkTimeOut = checkTimeOut;
-		this.roomPicthre = roomPicthre;
-		this.companyPicthre = companyPicthre;
-	}
-
-
-	public int getCompanyNo() {
-		return companyNo;
-	}
-	public void setCompanyNo(int companyNo) {
-		this.companyNo = companyNo;
-	}
-	public String getCompanyName() {
-		return companyName;
-	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
 	public int getRoomNum() {
-		return roomNum;
+		return RoomNum;
 	}
 	public void setRoomNum(int roomNum) {
-		this.roomNum = roomNum;
+		RoomNum = roomNum;
+	}
+	public int getCompanyNum() {
+		return companyNum;
+	}
+	public void setCompanyNum(int companyNum) {
+		this.companyNum = companyNum;
 	}
 	public int getPrice() {
 		return price;
@@ -60,11 +44,11 @@ public class Room {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getRoomName() {
-		return roomName;
+	public String getRoomNmae() {
+		return roomNmae;
 	}
-	public void setRoomName(String roomName) {
-		this.roomName = roomName;
+	public void setRoomNmae(String roomNmae) {
+		this.roomNmae = roomNmae;
 	}
 	public String getCheckTimeIn() {
 		return checkTimeIn;
@@ -72,30 +56,31 @@ public class Room {
 	public void setCheckTimeIn(String checkTimeIn) {
 		this.checkTimeIn = checkTimeIn;
 	}
-	public String getCheckTimeOut() {
-		return checkTimeOut;
+	public String getDheckTimeOut() {
+		return dheckTimeOut;
 	}
-	public void setCheckTimeOut(String checkTimeOut) {
-		this.checkTimeOut = checkTimeOut;
+	public void setDheckTimeOut(String dheckTimeOut) {
+		this.dheckTimeOut = dheckTimeOut;
 	}
-	public String getRoomPicthre() {
-		return roomPicthre;
+	public String getRoomInfo() {
+		return roomInfo;
 	}
-	public void setRoomPicthre(String roomPicthre) {
-		this.roomPicthre = roomPicthre;
+	public void setRoomInfo(String roomInfo) {
+		this.roomInfo = roomInfo;
 	}
-	public String getCompanyPicthre() {
-		return companyPicthre;
+	public String getRoomPicture() {
+		return roomPicture;
 	}
-	public void setCompanyPicthre(String companyPicthre) {
-		this.companyPicthre = companyPicthre;
+	public void setRoomPicture(String roomPicture) {
+		this.roomPicture = roomPicture;
 	}
 	@Override
 	public String toString() {
-		return "Room [companyNo=" + companyNo + ", companyName=" + companyName + ", roomNum=" + roomNum + ", price="
-				+ price + ", roomName=" + roomName + ", checkTimeIn=" + checkTimeIn + ", checkTimeOut=" + checkTimeOut
-				+ ", roomPicthre=" + roomPicthre + ", companyPicthre=" + companyPicthre + "]";
+		return "Room [RoomNum=" + RoomNum + ", companyNum=" + companyNum + ", price=" + price + ", roomNmae=" + roomNmae
+				+ ", checkTimeIn=" + checkTimeIn + ", dheckTimeOut=" + dheckTimeOut + ", roomInfo=" + roomInfo
+				+ ", roomPicture=" + roomPicture + "]";
 	}
+	
 	
 	
 }
