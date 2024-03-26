@@ -51,13 +51,31 @@ main {
 .carousel img:first-child{
   margin-left: 0px;
 }
-.carousel div {
+.carousel > div {
   display: inline-block;
   width: calc(90% / 3);
   border: 1px solid lightgrey;
   border-radius: 20px;
   margin-right: 50px;
-  margin-left: 10px;
+}
+.carousel > div > div {
+  margin: 20px;
+}
+.crtext-area {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10%;
+}
+.title {
+  font-weight: 1000;
+  font-size: large;
+}
+.score {
+  color: rgb(231, 228, 22);
+  font-size: 20px;
+}
+.score > span {
+  color: black;
 }
 /* -- 슬라이드 버튼 -- */
 .wrapper i{
