@@ -19,7 +19,7 @@
             <input type="text" class="mypage-detail" name="userPhone" value="<%=loginUser.getPhone() %>" readonly></input>
             <input type="text" class="mypage-detail" name="userBirthday" value="<%=loginUser.getBirthDate() %>" readonly></input>
             <div class="btn-area">
-                <button id="modify-btn" class="btn btn-secondary" >회원정보수정</button>
+                <a href="<%=request.getContextPath()%>/views/member/memberUpdate.jsp" id="modify-btn" class="btn btn-secondary" >회원정보수정</a>
                 <br><br>
                 <button id="delete-btn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUserModal">회원탈퇴</button>
             </div>
