@@ -35,6 +35,7 @@ public class ReviewInsertController extends HttpServlet {
 		
 		String userId = request.getParameter("userId");
 		int reserveNum = Integer.parseInt(request.getParameter("reserveNum"));
+		int companyNum = Integer.parseInt(request.getParameter("companyNum"));
 		String content = request.getParameter("content");
 		int reviewStar = Integer.parseInt(request.getParameter("reviewStar"));
 		
@@ -43,6 +44,7 @@ public class ReviewInsertController extends HttpServlet {
 		review.setReserveNum(reserveNum);
 		review.setReviewInfo(content);
 		review.setScore(reviewStar);
+		review.setCompanyNum(companyNum);
 		
 		System.out.println(review);
 		

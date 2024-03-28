@@ -35,7 +35,7 @@
 					<% if(r.getCheckIn().compareTo(new Date()) > 0 ) { %>
 					<button class="btn btn-danger cancelBtn" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button>
 					<% } else {%>
-					<button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reserveReview" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
+					<button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reserveReview" data-companynum="<%= r.getCompanyNum() %>" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
 					<% } %>
 					</div>
 					
@@ -102,6 +102,7 @@
                   <!-- 아이디 정보 type='hidden' -->
                   <input type ="hidden" name ="userId" value="<%= loginUser.getMemberId() %>"/>
                   <input type ="hidden" name ="reserveNum" value = ""/>    
+                  <input type ="hidden" name ="companyNum" value = ""/>
                     <table>
                         <tr>
                             <td>
@@ -136,6 +137,7 @@
     	  });
     	  $(".reviewBtn").click(function(ev){
     		  $("#reserveReview input[name=reserveNum]").val( $(ev.target).attr('data-reservenum') );
+    		  $("#reserveReview input[name=companyNum]").val( $(ev.target).attr('data-companynum') );
    		  });
     	  /*
     	  const cancelModal = document.getElementById('reserveCancel')
