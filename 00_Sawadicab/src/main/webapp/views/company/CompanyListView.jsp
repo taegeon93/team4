@@ -38,7 +38,7 @@
 	          <div class="item_name">
 	              <span class="companyName"><%=c.getCompanyName() %></span>
 	              <span class="companyAddress"><%=c.getCompanyAddress() %></span>
-	              <span class="score"> <img src="<%=request.getContextPath() %>/resources/img/common/star.jpg"><%=c.getScore() %></span>
+	              <span class="score"> <img src="<%=request.getContextPath() %>/resources/img/common/star.jpg"><%=String.format("%.1f", c.getScore()) %></span>
 	          </div>
 	          <div class="item_price"></div>
 	        </div>

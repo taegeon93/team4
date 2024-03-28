@@ -56,7 +56,8 @@ main {
   width: calc(90% / 3);
   border: 1px solid lightgrey;
   border-radius: 20px;
-  margin-right: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .carousel > div > div {
   margin: 20px;
