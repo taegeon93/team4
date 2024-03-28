@@ -43,7 +43,16 @@ body {
     height: 40px;
     border: 1px solid gainsboro;
     border-radius: 5px;
-    background-color: gainsboro;
+    color: gray;
+    font-weight: bold;
+}
+.mypage-detail2 {
+    margin:1%;
+    padding: inherit;
+    width: 400px;
+    height: 40px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
     color: gray;
 }
 
