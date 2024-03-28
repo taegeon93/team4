@@ -33,9 +33,9 @@
 			
 					<div class="item_price">
 					<% if(r.getCheckIn().compareTo(new Date()) > 0 ) { %>
-					<button id="cancelBtn" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button>
+					<button class="btn btn-danger cancelBtn" data-bs-toggle="modal" data-bs-target="#reserveCancel" data-reservenum="<%=r.getReserveNum()%>">예약취소</button>
 					<% } else {%>
-					<button id="reviewBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reserveReview" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
+					<button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reserveReview" data-reservenum="<%=r.getReserveNum()%>">리뷰</button>
 					<% } %>
 					</div>
 					
@@ -131,6 +131,13 @@
       </div>
       <script>
       $(function(){
+    	  $(".cancelBtn").click(function(ev){
+    		  $("#reserveCancel input[name=reserveNum]").val( $(ev.target).attr('data-reservenum') );
+    	  });
+    	  $(".reviewBtn").click(function(ev){
+    		  $("#reserveReview input[name=reserveNum]").val( $(ev.target).attr('data-reservenum') );
+   		  });
+    	  /*
     	  const cancelModal = document.getElementById('reserveCancel')
 	      cancelModal.addEventListener('shown.bs.modal', () => {
 	      	const rNum = document.getElementById("cancelBtn").getAttribute("data-reservenum");
@@ -141,6 +148,7 @@
 	      	const rNum = document.getElementById("reviewBtn").getAttribute("data-reservenum");
 	      	document.querySelector("#reserveReview input[name=reserveNum]").value = rNum;
       	  })
+      	  */
       })
       </script>
 </body>

@@ -44,6 +44,8 @@ public class ReviewInsertController extends HttpServlet {
 		review.setReviewInfo(content);
 		review.setScore(reviewStar);
 		
+		System.out.println(review);
+		
 		int result = new ReserveService().insertReivew(review);
 		if(result > 0) {
 			HttpSession session = request.getSession();
