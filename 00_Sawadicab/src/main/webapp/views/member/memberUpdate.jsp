@@ -22,10 +22,10 @@
         <p>개인정보 수정하기</p>
             <img src="<%=request.getContextPath() %>/resources/img/common/user.webp" id="profil-image" alt="프로필이미지">
             <input type="text" class="mypage-detail" name="memberId" value="<%=loginUser.getMemberId() %>" readonly></input>
-            <input type="text" class="mypage-detail" name="memberName" value="<%=loginUser.getMemberName() %>" ></input>
-            <input type="password" class="mypage-detail" name="memberPwd" value="" placeholder="비밀번호"></input>
-            <input type="password" class="mypage-detail" name="memberPwdCheck" value="" placeholder="비밀번호확인"></input>
-            <input type="text" class="mypage-detail" name="phone" value="<%=loginUser.getPhone() %>" ></input>
+            <input type="text" class="mypage-detail" name="memberName" value="<%=loginUser.getMemberName() %>" readonly></input>
+            <input type="password" class="mypage-detail2" name="memberPwd" value="" placeholder="비밀번호"></input>
+            <input type="password" class="mypage-detail2" name="memberPwdCheck" value="" placeholder="비밀번호확인"></input>
+            <input type="text" class="mypage-detail2" name="phone" value="<%=loginUser.getPhone() %>" ></input>
             <input type="text" class="mypage-detail" name="birthDate" value="<%=loginUser.getBirthDate() %>" readonly></input>
             <div class="btn-updatearea">
                     <button type="submit" class="btn btn-secondary"  onclick="return checkPwd()" >수정하기</button>
