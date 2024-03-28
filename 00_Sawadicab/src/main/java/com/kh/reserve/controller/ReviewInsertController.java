@@ -50,8 +50,8 @@ public class ReviewInsertController extends HttpServlet {
 			session.setAttribute("alertMsg", "리뷰가 성공적으로 등록되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/reservePage.re");
 		} else {
-			request.setAttribute("errorMsg", "리뷰 등록을 실패했습니다.");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			request.getSession().setAttribute("alertMsg", "이미 등록된 리뷰입니다.");
+			response.sendRedirect(request.getContextPath() + "/reservePage.re");
 		}
 	}
 

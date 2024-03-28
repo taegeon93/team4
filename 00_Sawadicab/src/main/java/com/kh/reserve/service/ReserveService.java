@@ -1,6 +1,9 @@
 package com.kh.reserve.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,8 +13,9 @@ import com.kh.company.model.vo.Company;
 import com.kh.member.model.vo.Member;
 import com.kh.reserve.model.dao.ReserveDao;
 import com.kh.reserve.model.dto.ReserveDto;
-import com.kh.reserve.model.vo.Review;
+import com.kh.reserve.model.dto.ReserveListDto;
 import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.vo.Review;
 
 public class ReserveService {
 
@@ -24,8 +28,8 @@ public class ReserveService {
 		return list;
 	}
 
-	public ArrayList<Reserve> selectReserveList(String memberId) {
-		ArrayList<Reserve> list = new ArrayList<>();
+	public ArrayList<ReserveListDto> selectReserveList(String memberId) {
+		ArrayList<ReserveListDto> list = new ArrayList<>();
 		Connection conn = getConnection();
 		list = new ReserveDao().selectReserveList(conn, memberId);
 		close(conn);

@@ -1,8 +1,9 @@
+<%@page import="com.kh.reserve.model.dto.ReserveListDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.kh.reserve.model.vo.Reserve" %>    
 <%
-	ArrayList<Reserve> list = (ArrayList<Reserve>)request.getAttribute("list");
+	ArrayList<ReserveListDto> list = (ArrayList<ReserveListDto>)request.getAttribute("list");
 	
 %>    
 <!DOCTYPE html>
@@ -21,9 +22,9 @@
 		<% if(list.isEmpty()) {%>
 			<h2 align="center">존재하는 예약내역이 없습니다.</h2>
 		<% } else { %>
-			<% for(Reserve r : list) { %>
+			<% for(ReserveListDto r : list) { %>
 				<div class="item">
-					<img src="" alt="reserveImg">
+					<img src="<%= request.getContextPath() %>/resources/img/company/<%= r.getCompanyNum() %>/<%= r.getCompanyPicture() %>" alt="reserveImg">
 					<div class="item_name">
 						<span class="reserveDate"><%= r.getCheckIn() %> ~ <%= r.getCheckOut() %></span>
 						<span class="reserveName"><%= r.getCompanyName() %></span>

@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.vo.Member;
-import com.kh.reserve.model.dto.ReserveDto;
-import com.kh.reserve.model.vo.Reserve;
+import com.kh.reserve.model.dto.ReserveListDto;
 import com.kh.reserve.service.ReserveService;
 
 /**
@@ -41,8 +40,7 @@ public class ReservationPageController extends HttpServlet {
 			String memberId = m.getMemberId();
 			
 			// 2. ReserveService 객체에 member_id 값을 전달해서, 해당 유저의 예약목록 조회해오기
-			ArrayList<Reserve> list = new ReserveService().selectReserveList(memberId);
-			
+			ArrayList<ReserveListDto> list = new ReserveService().selectReserveList(memberId);
 			//    조회된 예약목록을 request 객체의 attribute 공간에 저장
 			request.setAttribute("list", list);
 			// 3. 예약내역 페이지 응답해주기

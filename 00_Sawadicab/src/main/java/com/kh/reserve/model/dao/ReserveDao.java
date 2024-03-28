@@ -15,8 +15,8 @@ import java.util.Properties;
 import com.kh.company.model.vo.Company;
 import com.kh.member.model.vo.Member;
 import com.kh.reserve.model.dto.ReserveDto;
+import com.kh.reserve.model.dto.ReserveListDto;
 import com.kh.reserve.model.vo.Review;
-import com.kh.reserve.model.vo.Reserve;
 
 public class ReserveDao {
 	private Properties prop = new Properties();
@@ -76,8 +76,8 @@ public class ReserveDao {
 		return list;
 	}
 
-	public ArrayList<Reserve> selectReserveList(Connection conn, String memberId) {
-		ArrayList<Reserve> list = new ArrayList<>();
+	public ArrayList<ReserveListDto> selectReserveList(Connection conn, String memberId) {
+		ArrayList<ReserveListDto> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectReserveList");
@@ -89,12 +89,14 @@ public class ReserveDao {
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				list.add(
-						new Reserve(
-								rset.getInt("reserve_num"),
+						new ReserveListDto(
+								rset.getInt("company_num"),
+								rset.getString("company_picture"),
 								rset.getDate("checkIn"),
 								rset.getDate("checkOut"),
 								rset.getString("company_name"),
-								rset.getString("company_address")
+								rset.getString("company_address"),
+								rset.getInt("reserve_num")
 								)
 						);
 			}
