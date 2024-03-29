@@ -17,52 +17,6 @@ main {
   border-radius: 30px;
   box-shadow: inset 2px 1px 4px 4px rgb(235, 235, 235);
 }
-form {
-  margin: 50px;
-  margin-top: 9%;
-}
-/* -- 상단 검색창 -- */
-.searchgroup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5%;
-}
-.searchgroup div {
-  display: flex;
-  align-items: center;
-  border: 1px solid #e2e2e2;
-  box-shadow: 1px 1px 1px 1px rgb(235, 235, 235);
-  width: 400px;
-  height: 40px;
-}
-.searchgroup div img {
-  height: 20px;
-  width: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-.searchgroup input {
-  border: none;
-}
-.search1 {
-  border-radius: 10px 0 0 10px;
-}
-.search2 {
-  border-radius: 0 10px 10px 0;
-}
-.search1 input {
-  width: 340px;
-}
-.search2 :nth-child(2) {
-  width: 150px;
-  margin-right: 20px;
-}
-.search2 input:last-child {
-  width: 150px;
-  margin-left: 20px;
-}
-/* ----------------------- */
 .area2 {
   position: absolute;
   left: 0;
@@ -97,13 +51,32 @@ form {
 .carousel img:first-child{
   margin-left: 0px;
 }
-.carousel div {
+.carousel > div {
   display: inline-block;
   width: calc(90% / 3);
   border: 1px solid lightgrey;
   border-radius: 20px;
-  margin-right: 50px;
-  margin-left: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.carousel > div > div {
+  margin: 20px;
+}
+.crtext-area {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10%;
+}
+.title {
+  font-weight: 1000;
+  font-size: large;
+}
+.score {
+  color: rgb(231, 228, 22);
+  font-size: 20px;
+}
+.score > span {
+  color: black;
 }
 /* -- 슬라이드 버튼 -- */
 .wrapper i{

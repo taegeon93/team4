@@ -21,6 +21,7 @@
 nav .sidebar-link:hover {
     background-color: #FAF9FF;
     margin-left: 50px;
+    border-radius: 1em;
 }
 
 .sidebar-link div {

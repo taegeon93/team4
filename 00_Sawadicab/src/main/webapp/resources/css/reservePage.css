@@ -1,0 +1,92 @@
+#mainSection{
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px 0px gray;
+    width: 70%;
+    margin-top: 10%;
+    margin-left: 20%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 1000px;
+    height: auto;
+}
+
+.item{
+
+    width: 90%;
+    height: 290px;
+    box-shadow: 1px 3px 5px 0px gray;
+    margin: 4%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 900px;
+}
+.item_name{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+    text-align: center;
+    
+    
+}
+.item > img{
+    
+    height: 270px;
+    width: 250px;
+}
+.reserveName{
+    text-shadow: 1px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+.reserveDate{
+    
+    text-shadow: 1px 0px;
+}
+.reserveAddress{
+    text-shadow: 1px 0px;
+    
+}
+.item_price{
+    
+    display: flex;
+    width: 250px;
+    justify-items: center;
+}
+.item_price > button{
+    box-shadow: 1px 3px 5px 0px gray;
+    margin: auto;
+    margin-bottom: 30px;
+    width: 100px;
+}
+
+#myform fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#myform fieldset legend{
+    text-align: right;
+}
+#myform input[type=radio]{
+    display: none;
+}
+#myform label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#myform label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}

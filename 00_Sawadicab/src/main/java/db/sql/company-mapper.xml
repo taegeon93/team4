@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectCompany">
+		 SELECT COMPANY_NUM, COMPANY_NAME, COMPANY_ADDRESS,company_picture
+    FROM COMPANY
+    WHERE COMPANY_NUM =?
+	</entry>
+	
+	<entry key="mainCompanySelect">
+	SELECT C.COMPANY_NUM, C.COMPANY_NAME, C.COMPANY_PICTURE, C.SCORE, C.COMPANY_ADDRESS
+	FROM
+	(SELECT C.COMPANY_NUM, C.COMPANY_NAME, C.COMPANY_PICTURE, S.SCORE, C.COMPANY_ADDRESS
+	FROM COMPANY C
+	JOIN (
+		    SELECT COMPANY_NUM, NVL(AVG(SCORE),0) SCORE
+		    FROM REVIEW 
+		    RIGHT JOIN COMPANY USING (COMPANY_NUM)
+		    GROUP BY COMPANY_NUM        
+		) S ON (C.COMPANY_NUM = S.COMPANY_NUM)
+	ORDER BY SCORE DESC) C
+	WHERE ROWNUM &lt;= 7
+	
+	</entry>
+	<entry key="detailCompanySelect">
+		SELECT COMPANY_NAME, COMPANY_ADDRESS,company_num
+	FROM COMPANY JOIN ROOM USING(COMPANY_NUM)
+	WHERE ROOM_NUM = ?
+	</entry>
+</properties>

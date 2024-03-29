@@ -1,0 +1,51 @@
+.login-form{
+    padding:  3%;
+  }
+  
+  #div1{
+   text-align: center;
+   padding-bottom: 15%;
+  }
+  label {
+    padding-top: 1%;
+    padding-bottom:1%;
+    color: gray;
+  }
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 70%;
+}
+.btn1{
+  width: 520px;
+  margin: 5px;
+  color: white !important;
+  height: 49px;
+}
+input{
+ width: 520px;
+ height: 48px;
+ margin: 7px !important;
+ padding-left: 2%;
+ border: 1px solid gray;
+ border-radius: 5px;
+}
+.member {
+  display: flex;
+  margin-top: 18%;
+  position: relative;
+  height: 1200px;
+  justify-content: center;
+}
+  
+
+#scale-box{
+  width: 600px;
+  height: 750px;
+  box-shadow: 0px 5px 3px gray;
+  border: 1px solid gray;
+  border-radius: 1%;
+  
+}

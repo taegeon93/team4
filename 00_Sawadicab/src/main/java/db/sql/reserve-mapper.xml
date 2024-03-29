@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<!-- 	<entry key="searchCompany"> -->
+<!-- 		SELECT DISTINCT COMPANY_NAME, C.COMPANY_ADDRESS, COMPANY_PICTURE, COMPANY_NUM -->
+<!-- 		FROM COMPANY C -->
+<!-- 		JOIN RESERVE USING(COMPANY_NAME) -->
+<!-- 		WHERE (COMPANY_NAME LIKE '%' || ? || '%' -->
+<!-- 		OR C.COMPANY_ADDRESS LIKE '%' || ? || '%') -->
+<!-- 		AND (CHECKIN NOT BETWEEN ? AND ? -->
+<!-- 		AND CHECKOUT NOT BETWEEN ? AND ?) -->
+<!-- 	</entry> -->
+	<entry key="searchCompany">
+	<!-- 
+		SELECT DISTINCT COMPANY_NUM,COMPANY_NAME,C.COMPANY_ADDRESS,C.COMPANY_CATEGORY ,COMPANY_PICTURE, SCORE
+		FROM COMPANY C
+		    JOIN RESERVE USING(COMPANY_NAME)
+		    JOIN (
+		    SELECT COMPANY_NUM, AVG(SCORE) SCORE
+		    FROM REVIEW 
+		    JOIN COMPANY USING (COMPANY_NUM)
+		    WHERE COMPANY_NAME LIKE '%' || ? || '%' OR
+		    COMPANY_ADDRESS LIKE '%' || ? || '%'
+		    GROUP BY COMPANY_NAME, COMPANY_NUM
+		) SCORE USING(COMPANY_NUM)
+		WHERE CHECKIN NOT BETWEEN ? AND ?
+		        AND CHECKOUT NOT BETWEEN ? AND ?
+	 -->
+SELECT C.*, S.SCORE
+
+FROM COMPANY C
+JOIN (
+	    SELECT COMPANY_NUM, NVL(AVG(SCORE),0) SCORE
+	    FROM REVIEW 
+	    RIGHT JOIN COMPANY USING (COMPANY_NUM)
+	    GROUP BY COMPANY_NUM        
+	) S ON (C.COMPANY_NUM = S.COMPANY_NUM)
+    
+WHERE (COMPANY_NAME LIKE '%' || ? || '%' OR
+	            C.COMPANY_ADDRESS LIKE '%' || ? || '%')
+                
+AND C.COMPANY_NUM IN (SELECT COMPANY_NUM FROM ROOM
+                        WHERE ROOM_NUM NOT IN (
+                            SELECT ROOM_NUM FROM RESERVE 
+                            WHERE CHECKIN BETWEEN ? AND ?
+                                OR CHECKOUT BETWEEN ? AND ?
+                                OR (CHECKIN &lt; ? AND CHECKOUT &gt; ?)
+                                GROUP BY ROOM_NUM)
+                        GROUP BY COMPANY_NUM)
+	</entry>
+	<entry key="selectReserveList">
+<!-- 		SELECT RESERVE_NUM -->
+<!-- 			 , CHECKIN -->
+<!-- 			 , CHECKOUT -->
+<!-- 			 , COMPANY_NAME -->
+<!-- 			 , COMPANY_ADDRESS -->
+<!-- 		FROM RESERVE -->
+<!-- 		WHERE MEMBER_ID = ? -->
+
+		SELECT COMPANY_NUM, COMPANY_PICTURE, CHECKIN, CHECKOUT, R.COMPANY_NAME, R.COMPANY_ADDRESS, RESERVE_NUM
+		FROM RESERVE R
+		JOIN COMPANY C ON (R.COMPANY_NAME = C.COMPANY_NAME)
+		WHERE MEMBER_ID = ?
+	</entry>
+	<entry key="deleteReserve">
+		DELETE FROM RESERVE
+		WHERE MEMBER_ID = ? AND RESERVE_NUM = ? 
+	</entry>
+	<entry key="selectRoom">
+	    SELECT COMPANY_NUM ,COMPANY_NAME ,ROOM_NUM ,PRICE, ROOM_NAME, CHECKTIMEIN,CHECKTIMEOUT,ROOM_PICTURE,COMPANY_PICTURE
+    FROM ROOM JOIN COMPANY USING (COMPANY_NUM)
+     WHERE ROOM_NUM NOT IN (SELECT ROOM_NUM
+    FROM RESERVE
+    where CHECKIN BETWEEN ? AND ?
+    OR CHECKOUT BETWEEN ? AND ?
+    OR (CHECKIN &lt; ? AND CHECKOUT &gt; ?)) AND COMPANY_NUM = ?
+	</entry>
+	<entry key="selectReview">
+		SELECT MEMBER_NAME, WRITE_DAY, SCORE, REVIEW_INFO
+		FROM REVIEW
+		JOIN MEMBER USING(MEMBER_ID)
+		WHERE COMPANY_NUM = ?
+	</entry>
+	<entry key="insertReserve">
+		INSERT INTO Reserve VALUES (SEQ_RESERVE.NEXTVAL,?,?,?,?,?,?)
+	</entry>
+	
+	
+	
+	<entry key="selectCompanyNum">
+		SELECT COMPANY_NUM
+		FROM COMPANY C JOIN RESERVE R ON (C.COMPANY_NAME = R.COMPANY_NAME AND C.COMPANY_ADDRESS = R.COMPANY_ADDRESS)
+		WHERE RESERVE_NUM = ?
+	</entry>
+	<entry key="insertReview">
+		INSERT INTO REVIEW 
+				VALUES ( ?
+					   , ?
+					   , ?
+					   , ?
+					   , ?
+					   , SYSDATE )
+	</entry>	
+</properties>

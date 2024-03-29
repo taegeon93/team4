@@ -1,6 +1,6 @@
 const carousel = document.querySelector(".carousel"),
-firstImg = carousel.querySelectorAll("img")[0],
 arrowIcons = document.querySelectorAll(".wrapper i");
+let firstImg = carousel.querySelectorAll("img")[0];
 
 let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
 
@@ -12,7 +12,7 @@ const showHideIcons = () => {
 
 arrowIcons.forEach(icon => {
     icon.addEventListener("click", () => {
-        let firstImgWidth = firstImg.clientWidth + 65;
+        let firstImgWidth = firstImg.clientWidth + 55;
         carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
         setTimeout(() => showHideIcons(), 60);
     });
@@ -31,8 +31,46 @@ const autoSlide = () => {
     carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
 }
 
-function date() {
-    const date1 = document.getElementById("date1");
-    const date2 = document.getElementById("date2");
-    date2.setAttribute("min", date1.value);  
-}
+$(function(){
+    $.ajax({
+        url: 'select.co',
+        type: 'get',
+        success: function(list){
+            console.log(typeof list, list);
+            console.log("성공");
+            var today = new Date();
+
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            var nextday = ('0' + (today.getDate()+1)).slice(-2);
+
+            var date = year + '-' + month + '-' + day;
+            var nextDate = year + '-' + month + '-' + nextday;
+            
+
+            list.forEach (function (el, index) {
+                var result = `
+                <div onclick="location.href='/Sawadicab/detail.me?companyNum=${el.companyNum}&checkin=${date}&checkout=${nextDate}'">
+                    <img src="/Sawadicab/resources/img/company/${el.companyNum}/${el.companypicture}" alt="img" draggable="false">
+                    <div>
+                        <div class="crtext-area">
+                            <span class="title">${el.companyName}</span>
+                            <span class="score">★<span>${el.score.toFixed(1)}</span></span>
+                        </div>
+                        ${el.companyAddress}
+                    </div>
+                </div>
+                `;
+
+                // $(".carousel").html(result);
+                document.getElementById("test11").innerHTML += result;
+
+                firstImg = carousel.querySelectorAll("img")[0];
+              });
+        },
+        error:function (error) {
+            console.log(error);
+        }
+    });
+})
